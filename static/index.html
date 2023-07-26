@@ -1,13 +1,27 @@
 <!doctype html>
 <html>
+
 <head>
 	<title>Immersive Open Pedagogies</title>
 	<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@d85de74/dist/aframe-extras.min.js"></script>
+	<script src="../src/navigation.js"></script>
 </head>
 
 <body>
 	<a-scene>
-		
+		<!-- CAMERA -->
+
+		<!-- <a-camera id="camera" tp-trigger geometry="primitive: box; width: 0.1; height: 0.1; depth: 0.1"
+            aabb-collider="objects: a-box; collideNonVisible: true" wasd-controls="acceleration: 20"
+            twoway-motion="speed: 10" look-controls="pointerLockEnabled: true"></a-camera> -->
+
+		<a-entity id="rig" detect-ua>
+			<a-entity camera position="0 1.6 0" look-controls="pointerLockEnabled: true; magicWindowTrackingEnabled: false"></a-entity>
+		</a-entity>
+
+		<a-plane color="blue" scale="5 5 0" rotation="-90 0 0"></a-plane>
 	</a-scene>
 </body>
+
 </html>
