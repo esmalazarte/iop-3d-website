@@ -26,10 +26,14 @@ AFRAME.registerComponent('detect-ua', {
 
       if (AFRAME.utils.device.isMobile()) {
         // Add appropriate movement controls for mobile devices (touchscreen)
+        cursor.remove();
         el.setAttribute('movement-controls', 'controls: keyboard, nipple; constrainToNavMesh: true');
         el.setAttribute('nipple-controls', 'mode: static; lookJoystickEnabled: false; moveJoystickPosition: left');
+        while (checkpoints.hasChildNodes()) {
+          checkpoints.removeChild(checkpoints.firstChild);
+        }
       } else if (AFRAME.utils.device.checkHeadsetConnected()) {
-        // If the user is using a VR headset, remove the cursor
+        // If the user is using a VR headset, use the appropriate controls
         cursor.remove();
         el.setAttribute('movement-controls', 'controls: keyboard, checkpoint; constrainToNavMesh: true');
         // Add components for checkpoint movement
@@ -44,7 +48,8 @@ AFRAME.registerComponent('detect-ua', {
           checkpoints.removeChild(checkpoints.firstChild);
         }
       }
-    },
+      
+    }
 });
 
 AFRAME.registerComponent('footsteps', {
