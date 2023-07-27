@@ -5,6 +5,8 @@
 	<title>Immersive Open Pedagogies</title>
 	<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@d85de74/dist/aframe-extras.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
+	<script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
 	<script src="../src/navigation.js"></script>
 </head>
 
@@ -14,13 +16,39 @@
 		<!-- Asset Management -->
 		<a-assets>
 			<a-asset-item id="navmesh" src="../models/navmesh.gltf"></a-asset-item>
+			<img id="black" src="../assets/black.png">
+			<audio id="footsteps" src="../assets/footsteps.wav" preload="auto"></audio>
 		</a-assets>
 
 		<!-- Navmesh -->
 		<a-entity gltf-model="#navmesh" nav-mesh></a-entity>
 
-		<a-entity id="rig" detect-ua>
-			<a-entity camera position="0 1.6 0" look-controls="pointerLockEnabled: true; magicWindowTrackingEnabled: false"></a-entity>
+		<!-- PLACEHOLDER CHECKPOINTS -->
+		<a-entity id="checkpoints">
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="0 -0.4 -6" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="0 -0.4 2" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="5 -0.4 2" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="0 -0.4 0" class="clickable"></a-box>
+		</a-entity>
+
+		<!-- Camera Rig -->
+		<a-entity id="rig"
+		movement-controls
+		checkpoint-controls
+		sound="src: #footsteps; positional: false"
+		footsteps
+		detect-ua>
+
+			<!-- Camera -->
+			<a-entity camera position="0 1.6 0" look-controls="pointerLockEnabled: true; magicWindowTrackingEnabled: false">
+				<a-cursor id="cursor"></a-cursor>
+				<a-image id="blink" src="#black" position="0 0 -0.3" opacity="0"></a-image>
+			</a-entity>
+
+			<!-- Hands -->
+			<a-entity laser-controls="hand: left" raycaster="objects: .clickable; lineColor: #FFFFFF"></a-entity>
+			<a-entity laser-controls="hand: right" raycaster="objects: .clickable; lineColor: #FFFFFF" blink-controls></a-entity>
+
 		</a-entity>
 
 	</a-scene>
