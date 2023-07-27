@@ -37,17 +37,20 @@ AFRAME.registerComponent('detect-ua', {
         Gaze-based interactions note:
         Unless explicitly set to false, a-cursor fuses by default when on a mobile device
         */
-        // Disable cursor by default
+        // Disable cursor and enable screen touch interactions by default
         cursor.object3D.visible = false;
-        cursor.setAttribute('raycaster', 'far: 1');
+        // cursor.setAttribute('raycaster', 'far: 1');
+        cursor.setAttribute('cursor', 'rayOrigin: mouse');
         // Enable cursor when entering vr, and vice-versa
         scene.addEventListener('enter-vr', function () {
           cursor.object3D.visible = true;
-          cursor.setAttribute('raycaster', 'far: 1000');
+          // cursor.setAttribute('raycaster', 'far: 1000');
+          cursor.setAttribute('cursor', 'rayOrigin: entity');
         });
         scene.addEventListener('exit-vr', function () {
           cursor.object3D.visible = false;
-          cursor.setAttribute('raycaster', 'far: 1');
+          // cursor.setAttribute('raycaster', 'far: 1');
+          cursor.setAttribute('cursor', 'rayOrigin: mouse');
         });
       } else if (AFRAME.utils.device.checkHeadsetConnected()) {
         // If the user is using a VR headset, use the appropriate controls
