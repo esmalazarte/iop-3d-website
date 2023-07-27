@@ -41,7 +41,10 @@
 
 			<!-- Camera -->
 			<a-entity camera position="0 1.6 0" look-controls="pointerLockEnabled: true; magicWindowTrackingEnabled: false">
-				<a-cursor id="cursor"></a-cursor>
+				<a-cursor id="cursor"
+				animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
+				animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
+				raycaster="objects: .clickable"></a-cursor>
 				<a-image id="blink" src="#black" position="0 0 -0.3" opacity="0"></a-image>
 			</a-entity>
 

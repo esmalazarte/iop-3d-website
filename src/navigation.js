@@ -21,17 +21,34 @@ AFRAME.registerComponent('url-on-click', {
 AFRAME.registerComponent('detect-ua', {
     init: function () {
       var el = this.el;
+      var scene = document.querySelector("a-scene");
       var cursor = document.querySelector("#cursor");
       var checkpoints = document.querySelector("#checkpoints");
 
       if (AFRAME.utils.device.isMobile()) {
         // Add appropriate movement controls for mobile devices (touchscreen)
-        cursor.remove();
-        el.setAttribute('movement-controls', 'controls: keyboard, nipple; constrainToNavMesh: true');
+        el.setAttribute('movement-controls', 'controls: keyboard, checkpoint, nipple; constrainToNavMesh: true');
         el.setAttribute('nipple-controls', 'mode: static; lookJoystickEnabled: false; moveJoystickPosition: left');
-        while (checkpoints.hasChildNodes()) {
-          checkpoints.removeChild(checkpoints.firstChild);
-        }
+        // Add components for checkpoint movement
+        el.setAttribute('checkpoint-controls', 'mode: animate; animateSpeed: 13.0');
+        el.setAttribute('event-set__start', '_target: #blink; _event: navigation-start; animation.property: opacity; animation.to: 1; animation.dur: 150; animation.easing: easeOutQuart');
+        el.setAttribute('event-set__end', '_target: #blink; _event: navigation-end; animation.to: 0');
+        /*
+        Gaze-based interactions note:
+        Unless explicitly set to false, a-cursor fuses by default when on a mobile device
+        */
+        // Disable cursor by default
+        cursor.object3D.visible = false;
+        cursor.setAttribute('raycaster', 'far: 1');
+        // Enable cursor when entering vr, and vice-versa
+        scene.addEventListener('enter-vr', function () {
+          cursor.object3D.visible = true;
+          cursor.setAttribute('raycaster', 'far: 1000');
+        });
+        scene.addEventListener('exit-vr', function () {
+          cursor.object3D.visible = false;
+          cursor.setAttribute('raycaster', 'far: 1');
+        });
       } else if (AFRAME.utils.device.checkHeadsetConnected()) {
         // If the user is using a VR headset, use the appropriate controls
         cursor.remove();
@@ -48,7 +65,7 @@ AFRAME.registerComponent('detect-ua', {
           checkpoints.removeChild(checkpoints.firstChild);
         }
       }
-      
+
     }
 });
 
