@@ -23,6 +23,7 @@ AFRAME.registerComponent('detect-ua', {
     var el = this.el;
     var scene = document.querySelector("a-scene");
     var cursor = document.querySelector("#cursor");
+    var mouseCursor = document.querySelector("#mouseCursor");
     var checkpoints = document.querySelector("#checkpoints");
 
     if (AFRAME.utils.device.isMobile()) {
@@ -39,6 +40,7 @@ AFRAME.registerComponent('detect-ua', {
       */
       // Disable cursor and enable screen touch interactions by default
       cursor.object3D.visible = false;
+      cursor.setAttribute('raycaster', 'objects: .disabled');
       // Enable cursor when entering vr, and vice-versa
       scene.addEventListener('enter-vr', function () {
         cursor.object3D.visible = true;
@@ -51,6 +53,7 @@ AFRAME.registerComponent('detect-ua', {
     } else if (AFRAME.utils.device.checkHeadsetConnected()) {
       // If the user is using a VR headset, use the appropriate controls
       cursor.remove();
+      mouseCursor.remove();
       el.setAttribute('movement-controls', 'controls: keyboard, checkpoint; constrainToNavMesh: true');
       // Add components for checkpoint movement
       el.setAttribute('checkpoint-controls', 'mode: animate; animateSpeed: 13.0');
@@ -58,6 +61,7 @@ AFRAME.registerComponent('detect-ua', {
       el.setAttribute('event-set__end', '_target: #blink; _event: navigation-end; animation.to: 0');
     } else {
       // Otherwise, fall back on just keyboard movement controls
+      mouseCursor.remove();
       el.setAttribute('movement-controls', 'controls: keyboard; constrainToNavMesh: true');
       // Remove checkpoints from the scene
       while (checkpoints.hasChildNodes()) {
