@@ -39,7 +39,6 @@ AFRAME.registerComponent('detect-ua', {
       */
       // Disable cursor and enable screen touch interactions by default
       cursor.object3D.visible = false;
-      // cursor.setAttribute('raycaster', 'objects: .disabled');
       // Enable cursor when entering vr, and vice-versa
       scene.addEventListener('enter-vr', function () {
         cursor.object3D.visible = true;
