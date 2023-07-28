@@ -39,15 +39,15 @@ AFRAME.registerComponent('detect-ua', {
       */
       // Disable cursor and enable screen touch interactions by default
       cursor.object3D.visible = false;
-      cursor.setAttribute('cursor', 'rayOrigin: mouse');
+      // cursor.setAttribute('raycaster', 'objects: .disabled');
       // Enable cursor when entering vr, and vice-versa
       scene.addEventListener('enter-vr', function () {
         cursor.object3D.visible = true;
-        cursor.setAttribute('cursor', 'rayOrigin: entity');
+        cursor.setAttribute('raycaster', 'objects: .clickable');
       });
       scene.addEventListener('exit-vr', function () {
         cursor.object3D.visible = false;
-        cursor.setAttribute('cursor', 'rayOrigin: mouse');
+        cursor.setAttribute('raycaster', 'objects: .disabled');
       });
     } else if (AFRAME.utils.device.checkHeadsetConnected()) {
       // If the user is using a VR headset, use the appropriate controls
