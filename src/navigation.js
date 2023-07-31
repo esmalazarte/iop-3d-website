@@ -22,9 +22,13 @@ AFRAME.registerComponent('detect-ua', {
   init: function () {
     var el = this.el;
     var scene = document.querySelector("a-scene");
+    var checkpoints = document.querySelector("#checkpoints");
+
+    // Cursors
     var cursor = document.querySelector("#cursor");
     var mouseCursor = document.querySelector("#mouseCursor");
-    var checkpoints = document.querySelector("#checkpoints");
+    var interactionCursor = document.querySelector("#interactionCursor");
+    var interactionMouseCursor = document.querySelector("#interactionMouseCursor");
 
     if (AFRAME.utils.device.isMobile()) {
       // Add appropriate movement controls for mobile devices (touchscreen)
@@ -54,6 +58,7 @@ AFRAME.registerComponent('detect-ua', {
       // If the user is using a VR headset, use the appropriate controls
       cursor.remove();
       mouseCursor.remove();
+      interactionMouseCursor.remove();
       el.setAttribute('movement-controls', 'controls: keyboard, checkpoint; constrainToNavMesh: true');
       // Add components for checkpoint movement
       el.setAttribute('checkpoint-controls', 'mode: animate; animateSpeed: 13.0');
@@ -62,6 +67,7 @@ AFRAME.registerComponent('detect-ua', {
     } else {
       // Otherwise, fall back on just keyboard movement controls
       mouseCursor.remove();
+      interactionMouseCursor.remove();
       el.setAttribute('movement-controls', 'controls: keyboard; constrainToNavMesh: true');
       // Remove checkpoints from the scene
       while (checkpoints.hasChildNodes()) {
