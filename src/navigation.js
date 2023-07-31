@@ -13,6 +13,7 @@ AFRAME.registerComponent('url-on-click', {
     let data = this.data;
 
     el.addEventListener('click', function () {
+      el.sceneEl.exitVR();
       window.location.href = data.url;
     });
   }
