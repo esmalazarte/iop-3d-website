@@ -33,6 +33,7 @@
 		</a-entity>
 
 		<!-- PLACEHOLDER BUTTONS -->
+		<a-box color="red" position="0 1.6 -2"></a-box>
 		<a-box color="blue" position="0 1.6 -3" class="interactable"
 		event-set__enter="_event: mouseenter; color: green"
 		event-set__leave="_event: mouseleave; color: blue"
@@ -57,7 +58,7 @@
             	material="color: black; shader: flat"
 				animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
 				animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
-				raycaster="objects: .clickable"
+				raycaster="objects: .clickable; far: 5"
 				overlay></a-entity>
 				<!-- Interaction Cursor -->
 				<a-entity id="interactionCursor"
@@ -70,7 +71,7 @@
 			<!-- General/Mouse Cursor -->
 			<a-entity id="mouseCursor"
 			cursor="rayOrigin: mouse"
-			raycaster="objects: .clickable"></a-entity>
+			raycaster="objects: .clickable; far: 5"></a-entity>
 			<!-- General/Mouse Interaction Cursor -->
 			<a-entity id="interactionMouseCursor"
 			cursor="rayOrigin: mouse"
