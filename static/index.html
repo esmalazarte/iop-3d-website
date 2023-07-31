@@ -35,7 +35,7 @@
 		<a-box color="blue" position="0 1.6 -3" class="interactable"
 		event-set__enter="_event: mouseenter; color: green"
 		event-set__leave="_event: mouseleave; color: blue"
-		event-set__click="_event: click; color: red"></a-box>
+		event-set__click="_event: click; color: orange"></a-box>
 
 		<!-- Camera Rig -->
 		<a-entity id="rig"
@@ -54,12 +54,13 @@
             	material="color: black; shader: flat"
 				animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
 				animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
-				raycaster="objects: .clickable"></a-entity>
+				raycaster="objects: .clickable"
+				overlay></a-entity>
 				<!-- Interaction Cursor -->
 				<a-entity id="interactionCursor"
 				cursor="rayOrigin: entity"
 				position="0 0 -1"
-				raycaster="objects: .interactable; far: 2; origin: 0, 0, 1"></a-entity>
+				raycaster="objects: .interactable; far: 0.5; origin: 0, 0, 1"></a-entity>
 				<a-image id="blink" src="#black" position="0 0 -0.3" scale="2 2 1" opacity="0"></a-image>
 			</a-entity>
 
@@ -70,11 +71,11 @@
 			<!-- General/Mouse Interaction Cursor -->
 			<a-entity id="interactionMouseCursor"
 			cursor="rayOrigin: mouse"
-			raycaster="objects: .interactable; far: 2; origin: 0, 0, 1"></a-entity>
+			raycaster="objects: .interactable; far: 0.5; origin: 0, 0, 1"></a-entity>
 
 			<!-- Hands -->
-			<a-entity laser-controls="hand: left" raycaster="objects: .clickable; lineColor: #FFFFFF"></a-entity>
-			<a-entity laser-controls="hand: right" raycaster="objects: .clickable; lineColor: #FFFFFF" blink-controls></a-entity>
+			<a-entity laser-controls="hand: left" raycaster="objects: .clickable, .interactable; lineColor: #FFFFFF"></a-entity>
+			<a-entity laser-controls="hand: right" raycaster="objects: .clickable, .interactable; lineColor: #FFFFFF" blink-controls></a-entity>
 
 		</a-entity>
 

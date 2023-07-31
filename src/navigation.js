@@ -45,7 +45,7 @@ AFRAME.registerComponent('detect-ua', {
       // Disable cursor and enable screen touch interactions by default
       cursor.object3D.visible = false;
       cursor.setAttribute('raycaster', 'objects: .disabled');
-      interactionCursor.setAttribute('raycaster', 'objects: .disabled');
+      interactionCursor.setAttribute('raycaster', 'objects: .disabled;');
       // Enable cursor when entering vr, and vice-versa
       scene.addEventListener('enter-vr', function () {
         cursor.object3D.visible = true;
@@ -61,6 +61,7 @@ AFRAME.registerComponent('detect-ua', {
       // If the user is using a VR headset, use the appropriate controls
       cursor.remove();
       mouseCursor.remove();
+      interactionCursor.remove();
       interactionMouseCursor.remove();
       el.setAttribute('movement-controls', 'controls: keyboard, checkpoint; constrainToNavMesh: true');
       // Add components for checkpoint movement
@@ -89,5 +90,16 @@ AFRAME.registerComponent('footsteps', {
     el.addEventListener('navigation-start', function () {
       el.components.sound.playSound();
     });
+  }
+});
+
+AFRAME.registerComponent('overlay', {
+  init: function () {
+    // Do something when component first attached.
+    var el = this.el;
+
+    el.sceneEl.renderer.sortObjects = false;
+    // el.object3D.renderOrder = 100;
+    el.components.material.material.depthTest = false;
   }
 });
