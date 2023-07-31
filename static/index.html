@@ -34,7 +34,8 @@
 		<!-- PLACEHOLDER BUTTONS -->
 		<a-box color="blue" position="0 1.6 -3" class="interactable"
 		event-set__enter="_event: mouseenter; color: green"
-		event-set__leave="_event: mouseleave; color: blue"></a-box>
+		event-set__leave="_event: mouseleave; color: blue"
+		event-set__click="_event: click; color: red"></a-box>
 
 		<!-- Camera Rig -->
 		<a-entity id="rig"
@@ -58,7 +59,7 @@
 				<a-entity id="interactionCursor"
 				cursor="rayOrigin: entity"
 				position="0 0 -1"
-				raycaster="objects: .interactable; far: 2"></a-entity>
+				raycaster="objects: .interactable; far: 1"></a-entity>
 				<a-image id="blink" src="#black" position="0 0 -0.3" scale="2 2 1" opacity="0"></a-image>
 			</a-entity>
 
@@ -69,7 +70,7 @@
 			<!-- General/Mouse Interaction Cursor -->
 			<a-entity id="interactionMouseCursor"
 			cursor="rayOrigin: mouse"
-			raycaster="objects: .interactable; far: 2"></a-entity>
+			raycaster="objects: .interactable; far: 1"></a-entity>
 
 			<!-- Hands -->
 			<a-entity laser-controls="hand: left" raycaster="objects: .clickable; lineColor: #FFFFFF"></a-entity>
