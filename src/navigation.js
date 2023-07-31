@@ -98,7 +98,6 @@ AFRAME.registerComponent('detect-ua', {
 
 AFRAME.registerComponent('footsteps', {
   init: function () {
-    // Do something when component first attached.
     var el = this.el;
 
     el.addEventListener('navigation-start', function () {
@@ -109,11 +108,9 @@ AFRAME.registerComponent('footsteps', {
 
 AFRAME.registerComponent('overlay', {
   init: function () {
-    // Do something when component first attached.
     var el = this.el;
 
     el.sceneEl.renderer.sortObjects = false;
-    // el.object3D.renderOrder = 100;
     el.components.material.material.depthTest = false;
   }
 });
