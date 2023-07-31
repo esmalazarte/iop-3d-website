@@ -12,12 +12,27 @@ AFRAME.registerComponent('url-on-click', {
     let el = this.el;
     let data = this.data;
 
+    el.setAttribute('event-set__click', '_target: #blink; _event: click; animation.property: opacity; animation.to: 1; animation.dur: 1000; animation.easing: easeOutQuart; animation.delay: 300');
+
     el.addEventListener('click', function () {
-      el.sceneEl.exitVR();
-      window.location.href = data.url;
+      setTimeout(function () {
+        el.sceneEl.exitVR();
+        window.location.href = data.url;
+      }, 1000);
     });
   }
 });
+
+AFRAME.registerComponent('button-press', {
+  init: function () {
+    var el = this.el;
+
+    el.addEventListener('click', function () {
+      el.components.sound.playSound();
+    });
+  }
+});
+
 
 AFRAME.registerComponent('detect-ua', {
   init: function () {

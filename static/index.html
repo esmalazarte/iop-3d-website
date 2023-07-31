@@ -17,6 +17,7 @@
 		<a-assets>
 			<a-asset-item id="navmesh" src="../models/navmesh.gltf"></a-asset-item>
 			<img id="black" src="../assets/black.png">
+			<audio id="buttonPress" src="../assets/switch_004.ogg" preload="auto"></audio>
 			<!-- <audio id="footsteps" src="../assets/footsteps.wav" preload="auto"></audio> -->
 		</a-assets>
 
@@ -35,6 +36,8 @@
 		<a-box color="blue" position="0 1.6 -3" class="interactable"
 		event-set__enter="_event: mouseenter; color: green"
 		event-set__leave="_event: mouseleave; color: blue"
+		sound="src: #buttonPress"
+		button-press
 		url-on-click="url: https://google.com"></a-box>
 
 		<!-- Camera Rig -->
