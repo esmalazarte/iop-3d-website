@@ -12,13 +12,15 @@ const colorScheme = {
 }
   
 // Given a URL to a specific Post ID in WordPress, display its content on a plane.
+// IMPORTANT: Must be a child of a "container" e.g. a background screen or plane
 // Limitations: Only processes text. Images are inconsistent in geometry
 // Sample URL: https://samplewordpress.com/index.php/wp-json/wp/v2/posts/1
 // Attach to an a-entity e.g. <a-entity postview="url: <post url>">
 AFRAME.registerComponent('postview', {
     schema: {
         url: {type: 'string', default: ''},
-        width: {type: 'int', default: 10},
+        width: {type: 'int', default: 5},
+        wrapCount: {type: 'int', default: 60},
         bgColor: {default: colorScheme.darkgray},
         textColor: {default: colorScheme.offwhite},
         font: {default: 'sourcecodepro'}
@@ -29,25 +31,20 @@ AFRAME.registerComponent('postview', {
         let response = await fetch(this.data.url);
         let post = await response.json();
 
-        // Set entity to plane container
-        this.el.setAttribute('geometry', {
-            primitive: 'plane',
-            height: 'auto',
-            width: this.data.width
-        });
-
-        // Set background color
-        this.el.setAttribute('material', {
-            color: this.data.bgColor
-        });
-
         // Set text properties and value (Title + Text-only Content)
         this.el.setAttribute('text', {
             font: this.data.font,
             color: this.data.textColor,
+            wrapCount: this.data.wrapCount,
+            width: this.data.width,
+            baseline: 'top',
             zOffset: 0.005,
             value: post.title.rendered + '\n' + post.content.rendered.replace(/<[^<>]*>/g, '').replace(/\n{3,}/g, '\n\n'),
         });
+
+        // Set position to near top of container screen
+        let container = this.el.parentElement;
+        this.el.object3D.position.y = container.getAttribute('geometry').height / 2.25
     },
 });
 
