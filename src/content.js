@@ -50,11 +50,13 @@ AFRAME.registerComponent('postview', {
 
 // Adds scroll controls to the post view i.e. click arrow buttons to scroll
 // Attach to an a-entity and set target ID to a postview or listposts component
+// IMPORTANT: DO NOT NEST INSIDE AN A-ENTITY WITH CUSTOM SCALE, this will break the scroll limits
 AFRAME.registerComponent('scrollcontrols', {
     schema: {
         targetID: {type: 'string'},
         bgColor: {default: colorScheme.darkgray},
         textColor: {default: colorScheme.offwhite},
+        scrollDistance: {type: 'int', default: 1}
     },
 
     init: function () {
@@ -62,6 +64,11 @@ AFRAME.registerComponent('scrollcontrols', {
 
         // Get reference to target viewport
         let target = document.querySelector(this.data.targetID);
+        let targetObj = target.object3D;
+        let parentObj = target.parentElement.object3D;
+        let containerbound = new THREE.Box3().setFromObject(parentObj);
+        let targetWorldPos = new THREE.Vector3();
+        let parentWorldPos = new THREE.Vector3();
 
         // Initialize scroll entities
         let scrollUp = document.createElement('a-circle');
@@ -92,11 +99,18 @@ AFRAME.registerComponent('scrollcontrols', {
         
         // Moves target's y position depending on button click
         scrollUp.addEventListener('click', function(){
-            target.object3D.position.y -= 1
+            // let thisbound = new THREE.Box3().setFromObject(targetObj);
+            // if (thisbound.max.y > containerbound.max.y + parentObj.getWorldPosition(parentWorldPos).y){
+            targetObj.position.y -= data.scrollDistance;
+            // }
+            // console.log(thisbound.max.y+ ' ' +thisbound.min.y)
         });
 
         scrollDown.addEventListener('click', function(){
-            target.object3D.position.y += 1
+            // let thisbound = new THREE.Box3().setFromObject(targetObj);
+            // if (thisbound.min.y < containerbound.min.y + parentObj.getWorldPosition(parentWorldPos).y){ 
+            targetObj.position.y += data.scrollDistance;
+            // }
         });
 
         // Change button color on hover
