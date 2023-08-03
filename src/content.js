@@ -23,14 +23,24 @@ AFRAME.registerComponent('postview', {
         wrapCount: {type: 'int', default: 60},
         bgColor: {default: colorScheme.darkgray},
         textColor: {default: colorScheme.offwhite},
-        font: {default: 'sourcecodepro'}
+        font: {default: 'sourcecodepro'},
+        category: {type: 'int', default: 1}
     },
 
     init: async function () {
-        // Fetch post from CMS
-        let response = await fetch(this.data.url);
-        let post = await response.json();
+        let response, post;
 
+        if (this.data.url == '') {
+            // Fetch most recent post from category if no URL given
+            response = await fetch('https://iop.upou.edu.ph/index.php/wp-json/wp/v2/posts?categories='+this.data.category);
+            let posts = await response.json();
+            post = posts[0];
+        } else {
+            // Fetch post from CMS
+            response = await fetch(this.data.url);
+            post = await response.json();
+        }
+        
         // Set text properties and value (Title + Text-only Content)
         this.el.setAttribute('text', {
             font: this.data.font,
