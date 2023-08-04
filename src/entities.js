@@ -1,5 +1,64 @@
 // This file declares components that can be attached to an a-entity to be used as custom entities
 
+// Creates a rotating sphere with the UPOU logo that can be used as a centerpiece
+// Make sure to define the image to be displayed in the <a-assets> section first
+// Attach to an a-entity e.g. <a-entity centerpiece></a-entity>
+AFRAME.registerComponent('centerpiece', {
+    schema: {
+        image1: {type: 'string', default: '#header'},
+        image2: {type: 'string', default: '#header'},
+    },
+
+    init: function () {
+        let rotatingElement = document.createElement('a-entity');
+        let curvedimage1 = document.createElement('a-cylinder');
+        let curvedimage2 = document.createElement('a-cylinder');
+        let innerSphere = document.createElement('a-sphere');
+        let base = document.createElement('a-cylinder');
+
+        rotatingElement.setAttribute('position', '0 2 0');
+        rotatingElement.setAttribute('animation', {
+            property: 'rotation',
+            to: '0 360 0',
+            dur: '100000',
+            easing: 'linear',
+            loop: 'true'
+        });
+
+        curvedimage1.setAttribute('material', {
+            src: this.data.image1,
+            side: 'double',
+            transparent: 'true'
+        });
+        curvedimage1.setAttribute('open-ended', 'true');
+        curvedimage1.setAttribute('rotation', '0 0 0');
+        curvedimage1.setAttribute('theta-start', '10');
+        curvedimage1.setAttribute('theta-length', '170')
+
+        curvedimage2.setAttribute('material', {
+            src: this.data.image2,
+            side: 'double',
+            transparent: 'true'
+        });
+        curvedimage2.setAttribute('open-ended', 'true');
+        curvedimage2.setAttribute('rotation', '0 180 0');
+        curvedimage2.setAttribute('theta-start', '10');
+        curvedimage2.setAttribute('theta-length', '170');
+
+        innerSphere.setAttribute('color', colorScheme.upmaroon);
+        innerSphere.setAttribute('radius', '0.9');
+
+        base.setAttribute('color', colorScheme.upmaroon);
+        base.setAttribute('height', '0.5');
+
+        rotatingElement.appendChild(curvedimage1);
+        rotatingElement.appendChild(curvedimage2);
+        rotatingElement.appendChild(innerSphere);
+
+        this.el.appendChild(rotatingElement);
+        this.el.appendChild(base);
+    },
+});
 
 // Creates a rectangular box that functions as a rectangular room
 // Different from a-box since this component can modify floor, ceiling, and wall colors
