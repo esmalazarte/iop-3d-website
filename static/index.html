@@ -1,13 +1,88 @@
 <!doctype html>
 <html>
+
 <head>
 	<title>Immersive Open Pedagogies</title>
 	<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@d85de74/dist/aframe-extras.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
+	<script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+	<script src="../src/navigation.js"></script>
 </head>
 
 <body>
 	<a-scene>
-		
+
+		<!-- Asset Management -->
+		<a-assets>
+			<a-asset-item id="navmesh" src="../models/navmesh.gltf"></a-asset-item>
+			<img id="black" src="../assets/black.png">
+			<audio id="buttonPress" src="../assets/switch_004.ogg" preload="auto"></audio>
+			<!-- <audio id="footsteps" src="../assets/footsteps.wav" preload="auto"></audio> -->
+		</a-assets>
+
+		<!-- Navmesh -->
+		<a-entity gltf-model="#navmesh" nav-mesh></a-entity>
+
+		<!-- PLACEHOLDER CHECKPOINTS -->
+		<a-entity id="checkpoints">
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="0 -0.4 -5" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="0 -0.4 2" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="5 -0.4 2" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="0 -0.4 0" class="clickable"></a-box>
+		</a-entity>
+
+		<!-- PLACEHOLDER BUTTONS -->
+		<a-box color="blue" position="0 1.6 -3" class="interactable"
+		event-set__enter="_event: mouseenter; color: green"
+		event-set__leave="_event: mouseleave; color: blue"
+		sound="src: #buttonPress"
+		button-press
+		url-on-click="url: https://google.com"></a-box>
+
+		<!-- Camera Rig -->
+		<a-entity id="rig"
+		movement-controls
+		checkpoint-controls
+		sound="src: #footsteps; positional: false"
+		detect-ua>
+
+			<!-- Camera -->
+			<a-entity camera position="0 1.6 0" look-controls="pointerLockEnabled: true; magicWindowTrackingEnabled: false">
+				<!-- Camera Cursor -->
+				<a-entity id="cursor"
+				cursor="rayOrigin: entity"
+				position="0 0 -1"
+				geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
+            	material="color: black; shader: flat"
+				animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
+				animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
+				raycaster="objects: .clickable; far: 5"
+				overlay></a-entity>
+				<!-- Interaction Cursor -->
+				<a-entity id="interactionCursor"
+				cursor="rayOrigin: entity"
+				position="0 0 -1"
+				raycaster="objects: .interactable; far: 2; origin: 0, 0, 1"></a-entity>
+				<a-image id="blink" src="#black" position="0 0 -0.01" scale="2 2 1" opacity="0"></a-image>
+			</a-entity>
+
+			<!-- General/Mouse Cursor -->
+			<a-entity id="mouseCursor"
+			cursor="rayOrigin: mouse"
+			raycaster="objects: .clickable; far: 5"></a-entity>
+			<!-- General/Mouse Interaction Cursor -->
+			<a-entity id="interactionMouseCursor"
+			cursor="rayOrigin: mouse"
+			raycaster="objects: .interactable; far: 0.5; origin: 0, 0, 1"></a-entity>
+
+			<!-- Hands -->
+			<a-entity laser-controls="hand: left" raycaster="objects: .clickable, .interactable; far: 5; lineColor: #FFFFFF"></a-entity>
+			<a-entity laser-controls="hand: right" raycaster="objects: .clickable, .interactable; far: 5; lineColor: #FFFFFF" blink-controls></a-entity>
+
+		</a-entity>
+
 	</a-scene>
 </body>
+
 </html>
