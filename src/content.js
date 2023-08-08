@@ -10,7 +10,53 @@ const colorScheme = {
     lightbrown: "#7C6F6A",
     cyan: "#49A3B7"
 }
-  
+
+// const projects = [
+//     {
+//         title: "",
+//         description: "",
+//         authors: [],
+//         link: ""
+//     }
+// ];
+
+// const publications = [
+//     {
+//         title: "Virtual Reality Photo-based Tours for Teaching Filipino Vocabulary in an Online Class in Japan: Transitioning into the New Normal",
+//         date: "December 4, 2022",
+//         description: "",
+//         authors: ["Figueroa Jr, R. B.", "Gil, F. A. P", "Taniguchi, H.", "Esguerra, J. R."],
+//         link: "https://doi.org/10.5281/zenodo.7505128"
+//     },
+//     {
+//         title: "Piloting Virtual Reality Photo-Based Tours among Students of a Filipino Language Class: A Case of Emergency Remote Teaching in Japan",
+//         date: "January 5, 2023",
+//         description: "",
+//         authors: ["Figueroa, R. B.", "Palma Gil, F. A.", "Taniguchi, H"],
+//         link: "https://doi.org/10.48550/arXiv.2301.01904"
+//     },
+//     {
+//         title: "Virtualizing a University Campus Tour: A Pilot Study on its Usability and User Experience, and Perception",
+//         date: "November 20, 2020",
+//         description: "",
+//         authors: ["Figueroa, R.B.", "Mendoza, G. A. G.", "Fajardo, J. C. C.", "Tan, S. E.", "Yassin, E.", "Thian, T. H."],
+//         link: "https://ijitgeb.org/ijitgeb/article/view/60"
+//     },
+// ]
+
+function filterText(text){
+    text = text.replace(/<[^<>]*>/g, '');   // filter html tags
+    text = text.replace(/\n{3,}/g, '\n\n');  // replace 3 or more newlines to 2
+    text = text.replace(/&nbsp;/g, ' ');    // replace non-breaking space
+    text = text.replace(/&lt;/g, '<');      // replace less than sign
+    text = text.replace(/&gt;/g, '>');      // replace greater than sign
+    text = text.replace(/&amp;/g, '&');      // replace ampersand sign
+    text = text.replace(/&quot;/g, '"');      // replace quotation sign
+    text = text.replace(/&apos;/g, "'");      // replace apostrophe sign
+
+    return text;
+}
+
 // Given a URL to a specific Post ID in WordPress, display its content on a plane.
 // IMPORTANT: Must be a child of a "container" e.g. a background screen or plane
 // Limitations: Only processes text. Images are inconsistent in geometry
@@ -19,12 +65,12 @@ const colorScheme = {
 AFRAME.registerComponent('postview', {
     schema: {
         url: {type: 'string', default: ''},
-        width: {type: 'int', default: 5},
+        width: {type: 'float', default: 5},
         wrapCount: {type: 'int', default: 60},
-        bgColor: {default: colorScheme.darkgray},
-        textColor: {default: colorScheme.offwhite},
+        bgColor: {default: 'black'},
+        textColor: {default: 'white'},
         font: {default: 'sourcecodepro'},
-        category: {type: 'int', default: 1}
+        category: {type: 'int', default: 3}
     },
 
     init: async function () {
@@ -49,7 +95,7 @@ AFRAME.registerComponent('postview', {
             width: this.data.width,
             baseline: 'top',
             zOffset: 0.005,
-            value: post.title.rendered + '\n' + post.content.rendered.replace(/<[^<>]*>/g, '').replace(/\n{3,}/g, '\n\n'),
+            value: post.title.rendered + '\n' + filterText(post.content.rendered),
         });
 
         // Set position to near top of container screen
@@ -64,9 +110,9 @@ AFRAME.registerComponent('postview', {
 AFRAME.registerComponent('scrollcontrols', {
     schema: {
         targetID: {type: 'string'},
-        bgColor: {default: colorScheme.darkgray},
-        textColor: {default: colorScheme.offwhite},
-        scrollDistance: {type: 'int', default: 1}
+        bgColor: {default: colorScheme.offwhite},
+        textColor: {default: colorScheme.darkgray},
+        scrollDistance: {type: 'float', default: 1}
     },
 
     init: function () {
@@ -89,7 +135,8 @@ AFRAME.registerComponent('scrollcontrols', {
         // Scroll button properties (static)
         scrollUp.setAttribute('radius', '0.25');
         scrollUp.setAttribute('color', this.data.bgColor);
-        scrollUp.setAttribute('position', '-0.5 0 0');
+        scrollUp.setAttribute('position', '-0.25 0 0');
+        scrollUp.setAttribute('scale', '0.5 0.5 0.5');
         scrollUpArrow.setAttribute('value', '>');
         scrollUpArrow.setAttribute('color', this.data.textColor);
         scrollUpArrow.setAttribute('position', '-0.275 -0.1 0.005');
@@ -99,7 +146,8 @@ AFRAME.registerComponent('scrollcontrols', {
 
         scrollDown.setAttribute('radius', '0.25');
         scrollDown.setAttribute('color', this.data.bgColor);
-        scrollDown.setAttribute('position', '0.5 0 0');
+        scrollDown.setAttribute('position', '0.25 0 0');
+        scrollDown.setAttribute('scale', '0.5 0.5 0.5');
         scrollDownArrow.setAttribute('value', '<');
         scrollDownArrow.setAttribute('color', this.data.textColor);
         scrollDownArrow.setAttribute('position', '-0.275 -0.1 0.005');
@@ -180,11 +228,11 @@ AFRAME.registerComponent('scrollcontrols', {
 AFRAME.registerComponent('listposts', {
     schema: {
         url: {type: 'string', default: ''},
-        cardHeight: {type: 'int', default: 1},
-        cardWidth: {type: 'int', default: 2},
+        cardHeight: {type: 'float', default: 1},
+        cardWidth: {type: 'float', default: 2},
         wrapCount: {type: 'int', default: 20},
-        bgColor: {default: colorScheme.darkgray},
-        textColor: {default: colorScheme.offwhite},
+        bgColor: {default: "black"},
+        textColor: {default: "white"},
         font: {default: 'sourcecodepro'},
         targetID: {type: 'string'}
     },
@@ -221,7 +269,8 @@ AFRAME.registerComponent('listposts', {
             });
 
             postTitle.setAttribute('material', {
-                color: this.data.bgColor
+                color: this.data.bgColor,
+                transparent: true
             })
 
             postTitle.setAttribute('text', {
@@ -229,7 +278,6 @@ AFRAME.registerComponent('listposts', {
                 color: this.data.textColor,
                 wrapCount: this.data.wrapCount,
                 font: this.data.font,
-                xOffset: 0.1,
                 zOffset: 0.005,
             })
 
@@ -240,7 +288,7 @@ AFRAME.registerComponent('listposts', {
             // Change post content when clicked on title card
             postTitle.addEventListener('click', function() {
                 postView.setAttribute('text', {
-                    value: posts[i].title.rendered + '\n' + posts[i].content.rendered.replace(/<[^<>]*>/g, '').replace(/\n{3,}/g, '\n\n')
+                    value: posts[i].title.rendered + '\n' + filterText(posts[i].content.rendered)
                 })
                 postView.object3D.position.y = postView.parentElement.getAttribute('geometry').height / 2.25
             })
@@ -268,3 +316,48 @@ AFRAME.registerComponent('listposts', {
         }
     }
 });
+
+// AFRAME.registerComponent('monitorview', {
+//     schema: {
+//         category: {type: 'string'},
+//         width: {type: 'int', default: 6},
+//         height: {type: 'int', default: 4}
+//     },
+
+//     init: function () {
+//         let ctgData;
+//         let yPos = this.el.object3D.position.y;
+        
+//         switch (this.data.category) {
+//             case 'publications':
+//                 ctgData = publications;
+//                 break;
+//             case 'projects':
+//                 ctgData = projects;
+//                 break;
+//             default:
+//                 ctgData = projects;
+//         }
+
+//         for (let i=0; i<ctgData.length; i++){
+//             let card = document.createElement('a-entity');
+
+//             card.setAttribute('geometry', {
+//                 primitive: 'box',
+//                 width: this.data.width,
+//                 height: this.data.height,
+//                 depth: 0.005
+//             })
+
+//             let text = document.createElement('a-text')
+
+//             text.setAttribute('value', ctgData[i].title);
+//             text.object3D.position.y = yPos;
+//             yPos -= 1;
+
+//             this.el.appendChild(text)
+//         }
+
+//     },
+
+// });

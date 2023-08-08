@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test</title>
+        <!-- <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@ef03254934395d6a0a3cd093a8d37bb90790d24e/dist/aframe-master.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@d85de74/dist/aframe-extras.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
+        <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+        <script src="src/navigation.js"></script>
+        <script src="src/content.js"></script>
+        <script src="src/entities.js"></script>
+    </head>
+    
+    <body>
+        <a-scene background="color: white" renderer="colorManagement: true">
+            <a-assets>
+                <img id="header" src="assets/UPOU Website Header.png"></img>
+                <a-asset-item id="main" src="assets/Diorama.glb"></a-asset-item>
+            </a-assets>
+
+            <!-- Camera Rig -->
+            <a-entity id="rig">
+                <a-entity camera wasd-controls position="0 2 0" look-controls="pointerLockEnabled: true;">
+                    <!-- Camera Cursor -->
+                    <a-entity id="cursor"
+                    cursor="rayOrigin: entity"
+                    position="0 0 -1"
+                    geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
+                    material="color: black; shader: flat"
+                    ></a-entity>
+                    <!-- Interaction Cursor -->
+                    <a-entity id="interactionCursor"
+                    cursor="rayOrigin: entity"
+                    position="0 0 -1"></a-entity>
+                </a-entity>
+            </a-entity>
+
+            <!-- <a-entity position="0 0 -2" scale="0.5 0.5 0.5">
+                <a-entity position="-4 0 0" geometry="primitive: plane; width: 2; height: 5;" material="transparent: true; opacity: 0">
+                    <a-entity id="view2" material="side: double" listposts="targetID: #view1; url: https://iop.upou.edu.ph/index.php/wp-json/wp/v2/posts?categories=1"></a-entity>
+                </a-entity>
+
+                <a-entity position="-4 -2 1" rotation="-45 0 0" scrollcontrols="targetID: #view2"></a-entity>
+    
+                <a-entity position="0 0 0" geometry="primitive: plane; width: 5; height: 5;" material="color: #4D4457">
+                    <a-entity id="view1" postview=""></a-entity>
+                    
+                </a-entity>
+
+                <a-entity position="0 -2 1" rotation="-45 0 0" scrollcontrols="targetID: #view1"></a-entity>
+            </a-entity> -->
+
+            <!-- Default lighting injected by A-Frame. -->
+            <a-entity light="type: ambient; color: #BBB"></a-entity>
+            <a-entity light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity>
+
+            <a-entity gltf-model="#main">
+                
+                <!-- NEWS -->
+                <a-entity position="-4.55 2.1 -3.55">
+                    <!-- Transparent Planes for hiding text -->
+                    <a-plane 
+                        material="color: red; transparent: true; opacity: 0.01"
+                        position="0.05 -1.6 1.95"
+                        rotation="0 90 0"
+                        height="0.9"
+                        width="1">
+                    </a-plane>
+                    <a-plane 
+                        material="color: red; transparent: true; opacity: 0.01"
+                        position="0.05 -1.38 0"
+                        rotation="0 90 0"
+                        height="1.4"
+                        width="2.8">
+                    </a-plane>
+                    <a-plane 
+                        material="color: red; transparent: true; opacity: 0.01"
+                        position="0.05 2.25 0.6"
+                        rotation="0 90 0"
+                        height="3"
+                        width="4">
+                    </a-plane>
+
+                    <!-- Post Area-->
+                    <a-plane 
+                        color="black"
+                        rotation="0 90 0"
+                        height="1.1"
+                        width="2.3">
+                        <a-entity id="news"
+                            postview="width: 2.3; wrapCount: 100">
+                        </a-entity>
+                    </a-plane>
+                    <!-- Scroll Controls for Post Area -->
+                    <a-entity 
+                        position="0.2 -0.75 0"
+                        rotation="-75 90 0"
+                        scrollcontrols="targetID: #news; scrollDistance: 0.1">
+                    </a-entity>
+
+                    <!-- List of Posts -->
+                    <a-plane 
+                        color="black"
+                        rotation="0 90 0"
+                        position="0 -0.3 1.95"
+                        height="1.75"
+                        width="0.75">
+                        <a-entity
+                            id="newsList"
+                            position="0 0 0.005"
+                            listposts="targetID: #news; cardHeight: 0.4; cardWidth: 0.75; url: https://iop.upou.edu.ph/index.php/wp-json/wp/v2/posts?categories=3">
+                        </a-entity>
+                    </a-plane>
+                    <!-- Scroll Controls for Post List -->
+                    <a-entity 
+                        position="0.17 -1.3 2"
+                        rotation="-75 90 0"
+                        scale="0.8 0.8 0.8"
+                        scrollcontrols="targetID: #newsList; scrollDistance: 0.1">
+                    </a-entity>
+                    
+                </a-entity>
+
+                
+            </a-entity>
+
+        </a-scene>
+    </body>
+</html>
