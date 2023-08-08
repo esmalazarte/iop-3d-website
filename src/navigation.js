@@ -114,3 +114,41 @@ AFRAME.registerComponent('overlay', {
     el.components.material.material.depthTest = false;
   }
 });
+
+AFRAME.registerComponent('tp-destination', {
+  schema: {
+    type: 'vec3'
+  }
+});
+
+AFRAME.registerComponent('tp-rotation', {
+  schema: {
+    type: 'vec3'
+  }
+});
+
+AFRAME.registerComponent('teleport', {
+  schema: {
+    pos: {type: 'vec3', default: {x: 0, y: 0, z: 0}},
+    rot: {type: 'vec3'}
+  },
+
+  init: function () {
+    // Do something when component first attached.
+    var el = this.el;
+    var data = this.data;
+    var cameraRig = document.querySelector("#rig");
+
+    el.setAttribute('event-set__click', '_target: #blink; _event: click; animation.property: opacity; animation.to: 1; animation.dur: 1000; animation.easing: easeOutQuart; animation.delay: 300');
+
+    el.addEventListener('click', function () {
+      setTimeout(function () {
+        // cameraRig.setAttribute('position', tpDestination);
+        // cameraRig.setAttribute('rotation', tpRotation);
+        cameraRig.setAttribute('position', data.pos);
+        cameraRig.setAttribute('rotation', data.rot);
+      }, 1000);
+      el.setAttribute('event-set__leave', '_target: #blink; _event: mouseleave; animation.to: 0');
+    });
+  }
+});
