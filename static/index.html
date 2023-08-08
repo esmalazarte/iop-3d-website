@@ -19,26 +19,64 @@
 			<img id="black" src="../assets/black.png">
 			<audio id="buttonPress" src="../assets/switch_004.ogg" preload="auto"></audio>
 			<!-- <audio id="footsteps" src="../assets/footsteps.wav" preload="auto"></audio> -->
+
+			<a-asset-item id="map" src="./assets/models/Environment_NoGlass_optimized.glb"></a-asset-item>
+            <a-asset-item id="diorama" src="./assets/models/Diorama_optimized.glb"></a-asset-item>
 		</a-assets>
 
 		<!-- Navmesh -->
-		<a-entity gltf-model="#navmesh" nav-mesh></a-entity>
+		<!-- <a-entity gltf-model="#navmesh" nav-mesh></a-entity> -->
 
 		<!-- PLACEHOLDER CHECKPOINTS -->
-		<a-entity id="checkpoints">
+		<!-- <a-entity id="checkpoints">
 			<a-box color="red" checkpoint="offset: 0 0.4 0" position="0 -0.4 -5" class="clickable"></a-box>
 			<a-box color="red" checkpoint="offset: 0 0.4 0" position="0 -0.4 2" class="clickable"></a-box>
 			<a-box color="red" checkpoint="offset: 0 0.4 0" position="5 -0.4 2" class="clickable"></a-box>
 			<a-box color="red" checkpoint="offset: 0 0.4 0" position="0 -0.4 0" class="clickable"></a-box>
-		</a-entity>
+		</a-entity> -->
 
 		<!-- PLACEHOLDER BUTTONS -->
-		<a-box color="blue" position="0 1.6 -3" class="interactable"
+		<!-- <a-box color="blue" position="0 1.6 -3" class="interactable"
 		event-set__enter="_event: mouseenter; color: green"
 		event-set__leave="_event: mouseleave; color: blue"
 		sound="src: #buttonPress"
 		button-press
-		url-on-click="url: https://google.com"></a-box>
+		url-on-click="url: https://google.com"></a-box> -->
+
+		<!-- Map -->
+		<a-entity gltf-model="#map" position="0 0 0"></a-entity>
+		<!-- Dioramas -->
+        <a-entity id="diorama_lobby" position="3.35 0.74 -2.9" rotation="0 90 0">
+            <a-entity gltf-model="#diorama" scale="0.02 0.02 0.02"></a-entity>
+            <!-- BOXES/POINTS -->
+            <!-- Lobby -->
+            <a-box
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: blue"
+            scale="0.04 0.05 0.04"
+            position="0.07 0.01 -0.055"></a-box>
+            <!-- Research -->
+            <a-box
+            color="red"
+            scale="0.04 0.05 0.04"
+            position="-0.3 0.01 -0.075"></a-box>
+            <!-- ISCO -->
+            <a-box
+            color="red"
+            scale="0.04 0.05 0.04"
+            position="-0.23 0.01 0.215"></a-box>
+            <!-- Project -->
+            <a-box
+            color="red"
+            scale="0.04 0.05 0.04"
+            position="-0.0001 0.01 0.285"></a-box>
+            <!-- About -->
+            <a-box
+            color="red"
+            scale="0.04 0.05 0.04"
+            position="0.29 0.01 0.07"></a-box>
+        </a-entity>
 
 		<!-- Camera Rig -->
 		<a-entity id="rig"
