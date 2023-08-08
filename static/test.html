@@ -147,7 +147,19 @@
                     </a-entity>
                     <!-- Profile 6 -->
                     <a-entity position="0.45 2.2 -5.34">
-                        <a-image width="1" height="1.5" src="#profile6"></a-image>
+                        <a-entity rotateonclick>
+                            <a-image width="1" height="1.5" src="#profile6"></a-image>
+                            <a-plane rotation="0 180 0" width="1" height="1.5" color="#2b2d34" position="0 0 -0.01">
+                                <a-text
+                                    width="1"
+                                    wrap-count="30"
+                                    baseline="top"
+                                    align="left"
+                                    position="-0.5 0.7 0"
+                                    value="Education:\n- Bachelor of Science in Computer Science, University of the Philippines Los Baños\n- Master of Science in Computer Science, University of the Philippines Los Baños\n- Doctor of Philosophy in Educational Technology, International Christian University, Tokyo\n\nSpecialization:\nICT for Open Education, Educational Technologies, Immersive Learning\n\nWebsite:\nhttps://robertofigueroa.space/"
+                                ></a-text>
+                            </a-plane>
+                        </a-entity>
                         <a-text width="1.45" align="center" position="0 -1.05 -0.01" value="Roberto Figueroa Jr. PhD.\nProgram Director"></a-text>
                     </a-entity>
                     <!-- Profile 7 -->

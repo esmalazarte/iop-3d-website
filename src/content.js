@@ -318,6 +318,27 @@ AFRAME.registerComponent('listposts', {
     }
 });
 
+AFRAME.registerComponent('rotateonclick', {
+    init: function () {
+        let el = this.el;
+
+        el.setAttribute('animation', {
+            property: 'rotation',
+            startEvents: 'click',
+            dur: 500,
+            easing: 'easeOutQuad',
+            to: '0 '+ (el.getAttribute('rotation').y + 180) +' 0'
+        })
+
+        el.addEventListener('click', function(){
+            el.setAttribute('animation', {
+                to: '0 '+ (el.getAttribute('rotation').y + 180) +' 0'
+            });
+        })
+    },
+});
+
+
 // AFRAME.registerComponent('monitorview', {
 //     schema: {
 //         category: {type: 'string'},
