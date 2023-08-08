@@ -278,6 +278,7 @@ AFRAME.registerComponent('listposts', {
                 color: this.data.textColor,
                 wrapCount: this.data.wrapCount,
                 font: this.data.font,
+                xOffset: 0.01,
                 zOffset: 0.005,
             })
 
