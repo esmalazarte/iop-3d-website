@@ -27,13 +27,12 @@
 		<!-- Navmesh -->
 		<!-- <a-entity gltf-model="#navmesh" nav-mesh></a-entity> -->
 
-		<!-- PLACEHOLDER CHECKPOINTS -->
-		<!-- <a-entity id="checkpoints">
+		<!-- CHECKPOINTS -->
+		<a-entity id="checkpoints">
 			<a-box color="red" checkpoint="offset: 0 0.4 0" position="0 -0.4 -5" class="clickable"></a-box>
-			<a-box color="red" checkpoint="offset: 0 0.4 0" position="0 -0.4 2" class="clickable"></a-box>
-			<a-box color="red" checkpoint="offset: 0 0.4 0" position="5 -0.4 2" class="clickable"></a-box>
 			<a-box color="red" checkpoint="offset: 0 0.4 0" position="0 -0.4 0" class="clickable"></a-box>
-		</a-entity> -->
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="0 -0.4 5" class="clickable"></a-box>
+		</a-entity>
 
 		<!-- PLACEHOLDER BUTTONS -->
 		<!-- <a-box color="blue" position="0 1.6 -3" class="interactable"
@@ -274,13 +273,15 @@
 
 		<!-- Camera Rig -->
 		<a-entity id="rig"
+		position="0 1.6 -5"
+		rotation="0 180 0"
 		movement-controls
 		checkpoint-controls
 		sound="src: #footsteps; positional: false"
 		detect-ua>
 
 			<!-- Camera -->
-			<a-entity camera position="0 1.6 0" look-controls="pointerLockEnabled: true; magicWindowTrackingEnabled: false">
+			<a-entity camera look-controls="pointerLockEnabled: true; magicWindowTrackingEnabled: false">
 				<!-- Camera Cursor -->
 				<a-entity id="cursor"
 				cursor="rayOrigin: entity"
