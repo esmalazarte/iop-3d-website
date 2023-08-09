@@ -151,6 +151,6 @@ AFRAME.registerComponent('teleport', {
       }, 1000);
     });
 
-    el.setAttribute('event-set__leave', '_target: #blink; _event: animationend; animation.to: 0');
+    el.setAttribute('event-set__end', '_target: #blink; _event: animationend; animation.to: 0');
   }
 });
