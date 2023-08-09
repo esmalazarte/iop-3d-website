@@ -49,7 +49,7 @@ AFRAME.registerComponent('detect-ua', {
     if (AFRAME.utils.device.isMobile()) {
       // Add appropriate movement controls for mobile devices (touchscreen)
       el.setAttribute('movement-controls', 'controls: keyboard, checkpoint, nipple; constrainToNavMesh: true');
-      el.setAttribute('nipple-controls', 'mode: static; lookJoystickEnabled: false; moveJoystickPosition: left');
+      el.setAttribute('nipple-controls', 'mode: static; lookJoystickEnabled: true; moveJoystickPosition: left');
       // Add components for checkpoint movement
       el.setAttribute('checkpoint-controls', 'mode: animate; animateSpeed: 13.0');
       el.setAttribute('event-set__start', '_target: #blink; _event: navigation-start; animation.property: opacity; animation.to: 1; animation.dur: 150; animation.easing: easeOutQuart');
@@ -61,11 +61,10 @@ AFRAME.registerComponent('detect-ua', {
       // Disable cursor and enable screen touch interactions by default
       cursor.object3D.visible = false;
       cursor.setAttribute('raycaster', 'objects: .disabled');
-      interactionCursor.remove();
       // Enable cursor when entering vr, and vice-versa
       scene.addEventListener('enter-vr', function () {
         cursor.object3D.visible = true;
-        cursor.setAttribute('raycaster', 'objects: .clickable, .interactable');
+        cursor.setAttribute('raycaster', 'objects: .clickable');
       });
       scene.addEventListener('exit-vr', function () {
         cursor.object3D.visible = false;
@@ -87,10 +86,10 @@ AFRAME.registerComponent('detect-ua', {
       mouseCursor.remove();
       interactionMouseCursor.remove();
       el.setAttribute('movement-controls', 'controls: keyboard; constrainToNavMesh: true');
-      // Remove checkpoints from the scene
-      while (checkpoints.hasChildNodes()) {
-        checkpoints.removeChild(checkpoints.firstChild);
-      }
+      // // Remove checkpoints from the scene
+      // while (checkpoints.hasChildNodes()) {
+      //   checkpoints.removeChild(checkpoints.firstChild);
+      // }
     }
 
   }
@@ -112,5 +111,45 @@ AFRAME.registerComponent('overlay', {
 
     el.sceneEl.renderer.sortObjects = false;
     el.components.material.material.depthTest = false;
+  }
+});
+
+AFRAME.registerComponent('tp-destination', {
+  schema: {
+    type: 'vec3'
+  }
+});
+
+AFRAME.registerComponent('tp-rotation', {
+  schema: {
+    type: 'vec3'
+  }
+});
+
+AFRAME.registerComponent('teleport', {
+  schema: {
+    pos: {type: 'vec3', default: {x: 0, y: 0, z: 0}},
+    rot: {type: 'vec3'}
+  },
+
+  init: function () {
+    // Do something when component first attached.
+    var el = this.el;
+    var data = this.data;
+    var cameraRig = document.querySelector("#rig");
+
+    el.setAttribute('event-set__click', '_target: #blink; _event: click; animation.property: opacity; animation.to: 1; animation.dur: 1000; animation.easing: easeOutQuart; animation.delay: 300');
+
+    el.addEventListener('click', function () {
+      setTimeout(function () {
+        // cameraRig.setAttribute('position', tpDestination);
+        // cameraRig.setAttribute('rotation', tpRotation);
+        cameraRig.setAttribute('position', data.pos);
+        cameraRig.setAttribute('rotation', data.rot);
+        el.emit('animationend');
+      }, 1000);
+    });
+
+    el.setAttribute('event-set__end', '_target: #blink; _event: animationend; animation.to: 0');
   }
 });

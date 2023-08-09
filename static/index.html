@@ -19,36 +19,330 @@
 			<img id="black" src="../assets/black.png">
 			<audio id="buttonPress" src="../assets/switch_004.ogg" preload="auto"></audio>
 			<!-- <audio id="footsteps" src="../assets/footsteps.wav" preload="auto"></audio> -->
+
+			<a-asset-item id="map" src="./assets/models/Environment_NoGlass_optimized.glb"></a-asset-item>
+            <a-asset-item id="diorama" src="./assets/models/Diorama_optimized.glb"></a-asset-item>
 		</a-assets>
 
 		<!-- Navmesh -->
-		<a-entity gltf-model="#navmesh" nav-mesh></a-entity>
+		<!-- <a-entity gltf-model="#navmesh" nav-mesh></a-entity> -->
 
-		<!-- PLACEHOLDER CHECKPOINTS -->
+		<!-- CHECKPOINTS -->
 		<a-entity id="checkpoints">
+			<!-- Lobby -->
+			<!-- Lobby Diorama -->
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="3.75 -0.4 -3.8" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="2.75 -0.4 -2.8" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="3.75 -0.4 -1.8" class="clickable"></a-box>
+			<!-- News -->
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-2.75 -0.4 -2.8" class="clickable"></a-box>
+
 			<a-box color="red" checkpoint="offset: 0 0.4 0" position="0 -0.4 -5" class="clickable"></a-box>
-			<a-box color="red" checkpoint="offset: 0 0.4 0" position="0 -0.4 2" class="clickable"></a-box>
-			<a-box color="red" checkpoint="offset: 0 0.4 0" position="5 -0.4 2" class="clickable"></a-box>
 			<a-box color="red" checkpoint="offset: 0 0.4 0" position="0 -0.4 0" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="0 -0.4 5" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-5 -0.4 5" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="5 -0.4 5" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-5 -0.4 0" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="5 -0.4 0" class="clickable"></a-box>
+
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="10 -0.4 1.15" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-10 -0.4 1.15" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-7.5 -0.4 8.5" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="7.5 -0.4 8.5" class="clickable"></a-box>
+
+			<!-- About Entrance -->
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="15 -0.4 1.15" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="15.5 -0.4 3.5" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="15.5 -0.4 8.5" class="clickable"></a-box>
+			<!-- People -->
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="15 -0.4 -4" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="20 -0.4 -4" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="25 -0.4 -4" class="clickable"></a-box>
+			<!-- Screens -->
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="26 -0.4 -1" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="26 -0.4 4.5" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="26 -0.4 10" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="21 -0.4 10" class="clickable"></a-box>
+
+			<!-- Research Entrance -->
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-15 -0.4 1.15" class="clickable"></a-box>
+			<!-- Front Bookshelves -->
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-18 -0.4 1.15" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-20 -0.4 1.15" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-22 -0.4 1.15" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-24 -0.4 1.15" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-26 -0.4 1.15" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-28 -0.4 1.15" class="clickable"></a-box>
+			<!-- Back Bookshelves -->
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-18 -0.4 5.75" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-20 -0.4 5.75" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-22 -0.4 5.75" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-24 -0.4 5.75" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-26 -0.4 5.75" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-28 -0.4 5.75" class="clickable"></a-box>
+			<!-- Research Directory -->
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-23 -0.4 7.5" class="clickable"></a-box>
+			<!-- Research Diorama -->
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-14.3 -0.4 -3.75" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-15.3 -0.4 -2.75" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-16.3 -0.4 -3.75" class="clickable"></a-box>
+			<!-- To ISCO Lab -->
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-16 -0.4 6.15" class="clickable"></a-box>
+			
+			<!-- ISCO Lab Entrance -->
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-16 -0.4 11.15" class="clickable"></a-box>
 		</a-entity>
 
 		<!-- PLACEHOLDER BUTTONS -->
-		<a-box color="blue" position="0 1.6 -3" class="interactable"
+		<!-- <a-box color="blue" position="0 1.6 -3" class="clickable"
 		event-set__enter="_event: mouseenter; color: green"
 		event-set__leave="_event: mouseleave; color: blue"
 		sound="src: #buttonPress"
 		button-press
-		url-on-click="url: https://google.com"></a-box>
+		url-on-click="url: https://google.com"></a-box> -->
+
+		<!-- Map -->
+		<a-entity gltf-model="#map" position="0 0 0"></a-entity>
+		<!-- Dioramas -->
+        <a-entity id="diorama_lobby" position="3.35 0.74 -2.9" rotation="0 90 0">
+            <a-entity gltf-model="#diorama" scale="0.02 0.02 0.02"></a-entity>
+            <!-- Lobby -->
+            <a-box
+			class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="0.07 0.01 -0.055"></a-box>
+            <!-- Research -->
+            <a-box
+			class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="-0.3 0.01 -0.075"></a-box>
+            <!-- ISCO -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="-0.23 0.01 0.215"></a-box>
+            <!-- Project -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="-0.0001 0.01 0.285"></a-box>
+            <!-- About -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="0.29 0.01 0.07"
+			teleport="pos: 15.5 1.6 3.5; rot: 0 0 0"></a-box>
+        </a-entity>
+		<a-entity id="diorama_projects" position="0.2 0.74 13.85" rotation="0 0 0">
+            <a-entity gltf-model="#diorama" scale="0.02 0.02 0.02"></a-entity>
+            <!-- Lobby -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="0.07 0.01 -0.055"></a-box>
+            <!-- Research -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="-0.3 0.01 -0.075"></a-box>
+            <!-- ISCO -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="-0.23 0.01 0.215"></a-box>
+            <!-- Project -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="-0.0001 0.01 0.285"></a-box>
+            <!-- About -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="0.29 0.01 0.07"></a-box>
+        </a-entity>
+		<a-entity id="diorama_research" position="-15.3 0.74 -3.45" rotation="0 180 0">
+            <a-entity gltf-model="#diorama" scale="0.02 0.02 0.02"></a-entity>
+            <!-- Lobby -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="0.07 0.01 -0.055"></a-box>
+            <!-- Research -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="-0.3 0.01 -0.075"></a-box>
+            <!-- ISCO -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="-0.23 0.01 0.215"></a-box>
+            <!-- Project -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="-0.0001 0.01 0.285"></a-box>
+            <!-- About -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="0.29 0.01 0.07"></a-box>
+        </a-entity>
+		<a-entity id="diorama_isco" position="-11.7 0.71 10.5" rotation="0 90 0">
+            <a-entity gltf-model="#diorama" scale="0.02 0.02 0.02"></a-entity>
+            <!-- Lobby -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="0.07 0.01 -0.055"></a-box>
+            <!-- Research -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="-0.3 0.01 -0.075"></a-box>
+            <!-- ISCO -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="-0.23 0.01 0.215"></a-box>
+            <!-- Project -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="-0.0001 0.01 0.285"></a-box>
+            <!-- About -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="0.29 0.01 0.07"></a-box>
+        </a-entity>
+		<a-entity id="diorama_about" position="14.8 0.74 3.5" rotation="0 -90 0">
+            <a-entity gltf-model="#diorama" scale="0.02 0.02 0.02"></a-entity>
+            <!-- Lobby -->
+            <a-box
+			class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="0.07 0.01 -0.055"
+			teleport="pos: 2.75 1.6 -2.8; rot: 0 180 0"></a-box>
+            <!-- Research -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="-0.3 0.01 -0.075"></a-box>
+            <!-- ISCO -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="-0.23 0.01 0.215"></a-box>
+            <!-- Project -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="-0.0001 0.01 0.285"></a-box>
+            <!-- About -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="0.29 0.01 0.07"></a-box>
+        </a-entity>
+
+		<!-- BOOKS -->
+		<a-entity position="-17.85 1.8 3">
+			<a-box
+			class="clickable"
+			color="blue"
+			scale="0.15 0.8 0.5"
+			event-set__slideout="_event: mouseenter; animation.property: position; animation.to: '0 0 -0.5'; animation.dur: 350; animation.easing: easeOutQuart"
+			event-set__slidein="_event: mouseleave; animation.to: '0 0 0'"></a-box>
+		</a-entity>
 
 		<!-- Camera Rig -->
 		<a-entity id="rig"
+		position="0 1.6 -5"
+		rotation="0 180 0"
 		movement-controls
 		checkpoint-controls
 		sound="src: #footsteps; positional: false"
 		detect-ua>
 
 			<!-- Camera -->
-			<a-entity camera position="0 1.6 0" look-controls="pointerLockEnabled: true; magicWindowTrackingEnabled: false">
+			<a-entity camera look-controls="pointerLockEnabled: true; magicWindowTrackingEnabled: false; touchEnabled: false">
 				<!-- Camera Cursor -->
 				<a-entity id="cursor"
 				cursor="rayOrigin: entity"
@@ -57,13 +351,8 @@
             	material="color: black; shader: flat"
 				animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
 				animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
-				raycaster="objects: .clickable; far: 5"
+				raycaster="objects: .clickable; far: 6; origin: 0, 0, 1"
 				overlay></a-entity>
-				<!-- Interaction Cursor -->
-				<a-entity id="interactionCursor"
-				cursor="rayOrigin: entity"
-				position="0 0 -1"
-				raycaster="objects: .interactable; far: 2; origin: 0, 0, 1"></a-entity>
 				<a-image id="blink" src="#black" position="0 0 -0.01" scale="2 2 1" opacity="0"></a-image>
 			</a-entity>
 
@@ -71,14 +360,10 @@
 			<a-entity id="mouseCursor"
 			cursor="rayOrigin: mouse"
 			raycaster="objects: .clickable; far: 5"></a-entity>
-			<!-- General/Mouse Interaction Cursor -->
-			<a-entity id="interactionMouseCursor"
-			cursor="rayOrigin: mouse"
-			raycaster="objects: .interactable; far: 0.5; origin: 0, 0, 1"></a-entity>
 
 			<!-- Hands -->
-			<a-entity laser-controls="hand: left" raycaster="objects: .clickable, .interactable; far: 5; lineColor: #FFFFFF"></a-entity>
-			<a-entity laser-controls="hand: right" raycaster="objects: .clickable, .interactable; far: 5; lineColor: #FFFFFF" blink-controls></a-entity>
+			<a-entity laser-controls="hand: left" raycaster="objects: .clickable; far: 5; lineColor: #FFFFFF"></a-entity>
+			<a-entity laser-controls="hand: right" raycaster="objects: .clickable; far: 5; lineColor: #FFFFFF" blink-controls></a-entity>
 
 		</a-entity>
 
