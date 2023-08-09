@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test</title>
+        <!-- <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@ef03254934395d6a0a3cd093a8d37bb90790d24e/dist/aframe-master.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@d85de74/dist/aframe-extras.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
+        <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+        <script src="src/navigation.js"></script>
+        <script src="src/content.js"></script>
+        <script src="src/entities.js"></script>
+    </head>
+    
+    <body>
+        <a-scene background="color: white" renderer="colorManagement: true">
+            <a-assets>
+                <img id="header" src="assets/UPOU Website Header.png"></img>
+                <a-asset-item id="main" src="assets/Diorama.glb"></a-asset-item>
+                <img id="profile3" src="assets/people/petras.jpeg"></img>
+                <img id="profile4" src="assets/people/deterala.jpeg"></img>
+                <img id="profile5" src="assets/people/arada.jpeg"></img>
+                <img id="profile6" src="assets/people/figueroa.JPG"></img>
+                <img id="profile7" src="assets/people/oruga.png"></img>
+                <img id="profile8" src="assets/people/hawkinson.jpeg"></img>
+                <img id="profile9" src="assets/people/taniguchi.jpeg"></img>
+                <img id="futurehub" src="assets/partners/futurehub.png"></img>
+                <img id="mavr" src="assets/partners/mavr.png"></img>
+                <img id="minted" src="assets/partners/minted.png"></img>
+                <img id="upouaframe" src="assets/projects/upoutouraframe.png"></img>
+                <img id="permagarden" src="assets/projects/permagarden.png"></img>
+                <img id="phtour" src="assets/projects/phtour.png"></img>
+                <img id="forestry" src="assets/projects/forestry.png"></img>
+                <img id="ncodel" src="assets/projects/ncodel.png"></img>
+            </a-assets>
+
+            <!-- Camera Rig -->
+            <a-entity id="rig">
+                <a-entity camera wasd-controls position="0 2 0" look-controls="pointerLockEnabled: true;">
+                    <!-- Camera Cursor -->
+                    <a-entity id="cursor"
+                    cursor="rayOrigin: entity"
+                    position="0 0 -1"
+                    geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
+                    material="color: black; shader: flat"
+                    ></a-entity>
+                    <!-- Interaction Cursor -->
+                    <a-entity id="interactionCursor"
+                    cursor="rayOrigin: entity"
+                    position="0 0 -1"></a-entity>
+                </a-entity>
+            </a-entity>
+
+            <!-- <a-entity position="0 0 -2" scale="0.5 0.5 0.5">
+                <a-entity position="-4 0 0" geometry="primitive: plane; width: 2; height: 5;" material="transparent: true; opacity: 0">
+                    <a-entity id="view2" material="side: double" listposts="targetID: #view1; url: https://iop.upou.edu.ph/index.php/wp-json/wp/v2/posts?categories=1"></a-entity>
+                </a-entity>
+
+                <a-entity position="-4 -2 1" rotation="-45 0 0" scrollcontrols="targetID: #view2"></a-entity>
+    
+                <a-entity position="0 0 0" geometry="primitive: plane; width: 5; height: 5;" material="color: #4D4457">
+                    <a-entity id="view1" postview=""></a-entity>
+                    
+                </a-entity>
+
+                <a-entity position="0 -2 1" rotation="-45 0 0" scrollcontrols="targetID: #view1"></a-entity>
+            </a-entity> -->
+
+            <!-- Default lighting injected by A-Frame. -->
+            <a-entity light="type: ambient; color: #BBB"></a-entity>
+            <a-entity light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity>
+
+            <a-entity gltf-model="#main">
+                
+                <!-- NEWS -->
+                <a-entity position="-4.55 2.1 -3.55">
+                    <!-- Transparent Planes for hiding text -->
+                    <a-plane 
+                        material="color: red; transparent: true; opacity: 0.01"
+                        position="0.05 -1.6 1.95"
+                        rotation="0 90 0"
+                        height="0.9"
+                        width="1">
+                    </a-plane>
+                    <a-plane 
+                        material="color: red; transparent: true; opacity: 0.01"
+                        position="0.05 -1.38 0"
+                        rotation="0 90 0"
+                        height="1.4"
+                        width="2.8">
+                    </a-plane>
+                    <a-plane 
+                        material="color: red; transparent: true; opacity: 0.01"
+                        position="0.05 2.25 0.6"
+                        rotation="0 90 0"
+                        height="3"
+                        width="4">
+                    </a-plane>
+
+                    <!-- Post Area-->
+                    <a-plane 
+                        color="black"
+                        rotation="0 90 0"
+                        height="1.1"
+                        width="2.3">
+                        <a-entity id="news"
+                            postview="width: 2.3; wrapCount: 100">
+                        </a-entity>
+                    </a-plane>
+                    <!-- Scroll Controls for Post Area -->
+                    <a-entity 
+                        position="0.2 -0.75 0"
+                        rotation="-75 90 0"
+                        scrollcontrols="targetID: #news; scrollDistance: 0.1">
+                    </a-entity>
+
+                    <!-- List of Posts -->
+                    <a-plane 
+                        color="black"
+                        rotation="0 90 0"
+                        position="0 -0.3 1.94"
+                        height="1.75"
+                        width="0.75">
+                        <a-entity
+                            id="newsList"
+                            position="0 0 0.005"
+                            listposts="targetID: #news; cardHeight: 0.4; cardWidth: 0.75; url: https://iop.upou.edu.ph/index.php/wp-json/wp/v2/posts?categories=3">
+                        </a-entity>
+                    </a-plane>
+                    <!-- Scroll Controls for Post List -->
+                    <a-entity 
+                        position="0.17 -1.3 2"
+                        rotation="-75 90 0"
+                        scale="0.8 0.8 0.8"
+                        scrollcontrols="targetID: #newsList; scrollDistance: 0.1">
+                    </a-entity>
+                </a-entity>
+
+                <!-- ABOUT ROOM -->
+                <a-entity position="20 0 0">
+                    <!-- Profile 3 -->
+                    <a-entity position="-5.55 2.2 -5.34">
+                        <a-entity rotateonclick>
+                            <a-image width="1" height="1.5" src="#profile3"></a-image>
+                            <a-plane rotation="0 180 0" width="1" height="1.5" color="#2b2d34" position="0 0 -0.01">
+                                <a-text
+                                    width="1"
+                                    wrap-count="30"
+                                    baseline="top"
+                                    align="left"
+                                    position="-0.5 0.7 0"
+                                    value="Education:\n- Bachelor of Arts in Araling Pilipino (May Disiplina sa Panitikan at Sikolohiya)\n- Master of Arts in Araling Pilipino (May Disiplina sa Panitikan at Sikolohiya)\n- PhD Filipino: Pagpaplanong Pangwika sa University of the Philippines Diliman\n\nProfile:\nhttps://www.linkedin.com/in/jayson-petras-b1222347/"
+                                ></a-text>
+                            </a-plane>
+                        </a-entity>
+                        <a-text width="1.45" align="center" position="0 -1.05 -0.01" value="Jayson Petras\nCollaborating Researcher"></a-text>
+                        <a-plane material="transparent: true; opacity: 0.01" position="0 -1.05 0" width="0.8" height="0.25" url-on-click-window="url: https://www.linkedin.com/in/jayson-petras-b1222347/"></a-plane>
+                    </a-entity>
+                    <!-- Profile 4 -->
+                    <a-entity position="-3.55 2.2 -5.34">
+                        <a-entity rotateonclick>
+                            <a-image width="1" height="1.5" src="#profile4"></a-image>
+                            <a-plane rotation="0 180 0" width="1" height="1.5" color="#2b2d34" position="0 0 -0.01">
+                                <a-text
+                                    width="1"
+                                    wrap-count="30"
+                                    baseline="top"
+                                    align="left"
+                                    position="-0.5 0.7 0"
+                                    value="Education:\n- Bachelor of Arts in English Studies (Language), University of the Philippines Diliman\n- Master's in Research (Education and Society), Liverpool John Moores University (Distinction)\n- PhD in Education, Liverpool Hope University\n\nSpecialization:\nSocial Justice in Language Education, Philosophy of Education, Internationalization of Education\n\nProfile:\nhttps://www.researchgate.net/profile/Sophia-Deterala"
+                                ></a-text>
+                            </a-plane>
+                        </a-entity>
+                        <a-text width="1.45" align="center" position="0 -1.05 -0.01" value="Sophia Deterala\nProgram Development\nAssociate"></a-text>
+                        <a-plane material="transparent: true; opacity: 0.01" position="0 -1.05 0" width="0.8" height="0.25" url-on-click-window="url: https://www.researchgate.net/profile/Sophia-Deterala"></a-plane>
+                    </a-entity>
+                    <!-- Profile 5 -->
+                    <a-entity position="-1.55 2.2 -5.34">
+                        <a-entity rotateonclick>
+                            <a-image width="1" height="1.5" src="#profile5"></a-image>
+                            <a-plane rotation="0 180 0" width="1" height="1.5" color="#2b2d34" position="0 0 -0.01">
+                                <a-text
+                                    width="1"
+                                    wrap-count="30"
+                                    baseline="top"
+                                    align="left"
+                                    position="-0.5 0.7 0"
+                                    value="Education:\n- Bachelor of Science in Computer Science, University of the Philippines\n- Master of Information Systems, University of the Philippines Open University, 2016\n\nProfile:\nhttps://www.linkedin.com/in/blancaflor-arada/"
+                                ></a-text>
+                            </a-plane>
+                        </a-entity>
+                        <a-text width="1.45" align="center" position="0 -1.05 -0.01" value="Blancaflor Arada\nProgram Development\nAssociate"></a-text>
+                        <a-plane material="transparent: true; opacity: 0.01" position="0 -1.05 0" width="0.8" height="0.25" url-on-click-window="url: https://www.linkedin.com/in/blancaflor-arada/"></a-plane>
+                    </a-entity>
+                    <!-- Profile 6 -->
+                    <a-entity position="0.45 2.2 -5.34">
+                        <a-entity rotateonclick>
+                            <a-image width="1" height="1.5" src="#profile6"></a-image>
+                            <a-plane rotation="0 180 0" width="1" height="1.5" color="#2b2d34" position="0 0 -0.01">
+                                <a-text
+                                    width="1"
+                                    wrap-count="30"
+                                    baseline="top"
+                                    align="left"
+                                    position="-0.5 0.7 0"
+                                    value="Education:\n- Bachelor of Science in Computer Science, University of the Philippines Los Banos\n- Master of Science in Computer Science, University of the Philippines Los Banos\n- Doctor of Philosophy in Educational Technology, International Christian University, Tokyo\n\nSpecialization:\nICT for Open Education, Educational Technologies, Immersive Learning\n\nProfile:\nhttps://robertofigueroa.space/"
+                                ></a-text>
+                            </a-plane>
+                        </a-entity>
+                        <a-text width="1.45" align="center" position="0 -1.05 -0.01" value="Roberto Figueroa Jr. PhD.\nProgram Director"></a-text>
+                        <a-plane material="transparent: true; opacity: 0.01" position="0 -1.05 0" width="0.8" height="0.25" url-on-click-window="url: https://robertofigueroa.space/"></a-plane>
+                    </a-entity>
+                    <!-- Profile 7 -->
+                    <a-entity position="2.45 2.2 -5.34">
+                        <a-entity rotateonclick>
+                            <a-image width="1" height="1.5" src="#profile7"></a-image>
+                            <a-plane rotation="0 180 0" width="1" height="1.5" color="#2b2d34" position="0 0 -0.01">
+                                <a-text
+                                    width="1"
+                                    wrap-count="30"
+                                    baseline="top"
+                                    align="left"
+                                    position="-0.5 0.7 0"
+                                    value="Education:\n- Bachelor of Science in Biology (Microbiology), University of the Philippines Los Banos\n- Master in Public Health, University of the Philippines Open University\n- Doctor of Philosophy in Human Nutrition, University of the Philippines Los Banos\n\nSpecialization:\nClinical Nutrition, Health Promotion and Education, Developmental Communication, Communicable Disease Expertise: HIV and Dengue, Non Communicable Expertise: Obesity, Diabetes and other Metabolic Disorders\n\nProfile:\nhttps://www.linkedin.com/in/dr-myra-oruga-0352a95/"
+                                ></a-text>
+                            </a-plane>
+                        </a-entity>
+                        <a-text width="1.45" align="center" position="0 -1.05 -0.01" value="Myra Oruga\nProgram Development\nAssociate"></a-text>
+                        <a-plane material="transparent: true; opacity: 0.01" position="0 -1.05 0" width="0.8" height="0.25" url-on-click-window="url: https://www.linkedin.com/in/dr-myra-oruga-0352a95/"></a-plane>
+                    </a-entity>
+                    <!-- Profile 8 -->
+                    <a-entity position="4.45 2.2 -5.34">
+                        <a-entity rotateonclick>
+                            <a-image width="1" height="1.5" src="#profile8"></a-image>
+                            <a-plane rotation="0 180 0" width="1" height="1.5" color="#2b2d34" position="0 0 -0.01">
+                                <a-text
+                                    width="1"
+                                    wrap-count="30"
+                                    baseline="top"
+                                    align="left"
+                                    position="-0.5 0.7 0"
+                                    value="Education:\n- Bachelor of Interdisciplinary Studies (International Business, Japanese, Computer Information), Arizona State University\n- Master of Arts in Educational Technology and Learning Design, San Diego State University\n\nSpecialization:\nDigital Literacy, New Media Marketing in Tourism, New Media Lab, Metaverse, Immersive Technology, Virtual Reality for Education, Game based tourism\n\nProfile:\nhttps://erichawkinson.com/"
+                                ></a-text>
+                            </a-plane>
+                        </a-entity>
+                        <a-text width="1.45" align="center" position="0 -1.05 -0.01" value="Eric Hawkinson\nCollaborating Researcher"></a-text>
+                        <a-plane material="transparent: true; opacity: 0.01" position="0 -1.05 0" width="0.8" height="0.25" url-on-click-window="url: https://erichawkinson.com/"></a-plane>
+                    </a-entity>
+                    <!-- Profile 9 -->
+                    <a-entity position="6.45 2.2 -5.34">
+                        <a-entity rotateonclick>
+                            <a-image width="1" height="1.5" src="#profile9"></a-image>
+                            <a-plane rotation="0 180 0" width="1" height="1.5" color="#2b2d34" position="0 0 -0.01">
+                                <a-text
+                                    width="1"
+                                    wrap-count="30"
+                                    baseline="top"
+                                    align="left"
+                                    position="-0.5 0.7 0"
+                                    value="Education:\n- Bachelor of Engineering, Ibaraki University (2003-2205) & University of Tsukuba (2005-2008)\n- Master of Sports Science, Waseda University\n\nSpecialization:\nJapanese laguange education, health sciences, physical education, and computer assisted language learning (CALL)\n\nProfile:\nhttps://www.linkedin.com/in/hiroshi-taniguchi-1a8b4a24a/"
+                                ></a-text>
+                            </a-plane>
+                        </a-entity>
+                        <a-text width="1.45" align="center" position="0 -1.05 -0.01" value="Hiroshi Taniguchi\nCollaborating Researcher"></a-text>
+                        <a-plane material="transparent: true; opacity: 0.01" position="0 -1.05 0" width="0.8" height="0.25" url-on-click-window="url: https://www.linkedin.com/in/hiroshi-taniguchi-1a8b4a24a/"></a-plane>
+                    </a-entity>
+
+                    <!-- Front Middle Screen -->
+                    <a-text
+                        value="Immersive\nOpen\nPedagogies"
+                        font="kelsonsans"
+                        width="15"
+                        line-height="40"
+                        align="center"
+                        rotation="0 270 0"
+                        position="9.35 2.1 4.5">
+                    </a-text>
+                    <!-- Front Left Screen -->
+                    <a-text
+                        value="What is Immersive Open Pedagogy?\n
+                        - Immersive Technologies: Virtual reality (VR), augmented reality (AR), mixed reality (MR) and extended reality (XR) to employ Immersive Learning (IL), the process of providing a learning activity or creating a learning experience with the use of simulated, artificial or virtual environments.\n
+                        - Open Pedagogy. A set of teaching and learning practices only possible in the context of the free access and 4R (Reuse, Revise, Remix, Redistribute) permissions characteristic of open educational resources.\n\n
+                        Rationale\n
+                        The Immersive Open Pedagogies Research Program was created as a programmatic approach to consolidate the efforts in Immersive Open Pedagogical Research through projects, and strategically increase their impact through organized/funded activities and linkages."
+                        font="kelsonsans"
+                        width="2"
+                        baseline="top"
+                        align="left"
+                        rotation="0 270 0"
+                        position="9.25 3.4 -2.6">
+                    </a-text>
+                    <!-- Front Right Screen -->
+                    <a-text
+                        value="Functions\n
+                        - Implement: Immersive Open Pedagogy & projects for UPOU.\n
+                        - Operate: An Immersive Learning Laboratory (ILL) that will design, develop, and test learning models, strategies, and environments.\n
+                        - Provide: Technical assistance to UPOU faculty, students, and staff in migrating to immersive learning.\n\n
+                        Vision\nTo evolve into a leading research and development center for the use of immersive technologies in open and flexible education\n
+                        Aim\nTo create a dynamic and inclusive community of educators, designers, developers, and researchers who are dedicated to advancing the field of immersive learning"
+                        font="kelsonsans"
+                        width="2"
+                        baseline="top"
+                        align="left"
+                        rotation="0 270 0"
+                        position="9.25 3.4 9.4">
+                    </a-text>
+
+                    <!-- Right Screen -->
+                    <a-entity position="4 2 14.25">
+                        <a-text
+                            value="Partners:\n\n
+                            Multimedia and Immersive or Neoteric Technology for Education and Development Laboratory (MINTED Lab)\n\n
+                            The Japan Association for Language Teaching (JALT) Mixed, Augmented, and Virtual Realities (MAVR)\n\n
+                            Kyoto University of Foreign Studies Future Hub"
+                            font="kelsonsans"
+                            width="3"
+                            baseline="top"
+                            align="left"
+                            rotation="0 180 0"
+                            position="2.1 1.4 0">
+                        </a-text>
+                        <a-image 
+                            width="0.8"
+                            height="0.6"
+                            src="#minted"
+                            position="-1.5 0.7 -0.02"
+                            rotation="0 180 0">
+                        </a-image>
+                        <a-image 
+                            width="0.8"
+                            height="0.5"
+                            src="#mavr"
+                            position="-1.5 0 -0.02"
+                            rotation="0 180 0">
+                        </a-image>
+                        <a-image 
+                            width="0.8"
+                            height="0.5"
+                            src="#futurehub"
+                            position="-1.5 -0.7 -0.02"
+                            rotation="0 180 0">
+                        </a-image>
+                    </a-entity>
+
+                    <!-- Contact -->
+                    <a-plane position="-6.5 2.3 13.8" rotation="0 180 0" height="1.5" width="2.7" color="#2b2d34"></a-plane>
+                    <a-text
+                        value="Contact Us:\n
+                        iop@upou.edu.ph
+                        iopdirector@upou.edu.ph\n
+                        University of the Philippines Open University
+                        Los Baños, Laguna, Philippines, 4031
+                        (+6349) 536-6001 to 06
+                        Monday - Friday: 8:00 AM - 5:00 PM PHT"
+                        font="kelsonsans"
+                        width="2"
+                        baseline="top"
+                        align="left"
+                        rotation="0 180 0"
+                        position="-5.6 2.8 13.75">
+                    </a-text>
+                </a-entity>
+
+                <!-- PROJECTS ROOM -->
+                <a-entity position="0 0 13">
+                    <!-- Project 1 -->
+                    <a-entity position="10.4 2 1.94" rotation="0 270 0">
+                        <!-- Top Left Screen -->
+                        <a-text
+                            value="UPOU Tour (A-Frame)\n
+                            A gaze-based tour of the University of the Philippines Open University developed using A-Frame."
+                            font="kelsonsans"
+                            width="1.7"
+                            baseline="top"
+                            align="left"
+                            position="-1.8 1.1 0">
+                        </a-text>
+                        <!-- Bottom Left Screen -->
+                        <a-text
+                            value="Developed by:\nJoshze Rica Esguerra"
+                            font="kelsonsans"
+                            width="1.7"
+                            baseline="top"
+                            align="left"
+                            position="-1.8 -1.1 0">
+                        </a-text>
+                        <!-- Top Right Image -->
+                        <a-image
+                            src="#upouaframe"
+                            position="1 0.3 0"
+                            width="1.8"
+                            height="2"
+                        >
+                        </a-image>
+                        <!-- Bottom Label and Button -->
+                        <a-text
+                            value="VIEW\n-->"
+                            font="kelsonsans"
+                            width="4"
+                            align="center"
+                            position="0.75 -1.35 0">
+                        </a-text>
+                        <a-plane 
+                            material="transparent: true; opacity: 0.01"
+                            position="1.71 -1.35 0.02"
+                            width="0.5" height="0.5"
+                            url-on-click="url: https://iop.upou.edu.ph/vrtours/upou">
+                        </a-plane>
+                    </a-entity>
+
+                    <!-- Project 2 -->
+                    <a-entity position="10.4 2 6.94" rotation="0 270 0">
+                        <!-- Top Left Screen -->
+                        <a-text
+                            value="PH Tour\n
+                            A point-and-click based A-Frame tour of multiple locations in the Philippines used to teach Filipino to Japanese students.
+                            In partnership with the Tokyo University of Foreign Studies"
+                            font="kelsonsans"
+                            width="1.7"
+                            baseline="top"
+                            align="left"
+                            position="-1.8 1.1 0">
+                        </a-text>
+                        <!-- Bottom Left Screen -->
+                        <a-text
+                            value="Developed by:\nJoshze Rica Esguerra"
+                            font="kelsonsans"
+                            width="1.7"
+                            baseline="top"
+                            align="left"
+                            position="-1.8 -1.1 0">
+                        </a-text>
+                        <!-- Top Right Image -->
+                        <a-image
+                            src="#phtour"
+                            position="1 0.3 0"
+                            width="1.8"
+                            height="2"
+                        >
+                        </a-image>
+                        <!-- Bottom Label and Button -->
+                        <a-text
+                            value="VIEW\n-->"
+                            font="kelsonsans"
+                            width="4"
+                            align="center"
+                            position="0.75 -1.35 0">
+                        </a-text>
+                        <a-plane 
+                            material="transparent: true; opacity: 0.01"
+                            position="1.71 -1.35 0.02"
+                            width="0.5" height="0.5"
+                            url-on-click="url: https://iop.upou.edu.ph/vrtours/ph/">
+                        </a-plane>
+                    </a-entity>
+
+                    <!-- Project 3 -->
+                    <a-entity position="10.4 2 11.94" rotation="0 270 0">
+                        <!-- Top Left Screen -->
+                        <a-text
+                            value="NCODeL virtual exhibit\n
+                            In November 2022, the university held the National Conference for Open and Distance eLearning (NCODeL). The virtual exhibit was built on FrameVR, a web-based platform for hosting immersive collaboration spaces."
+                            font="kelsonsans"
+                            width="1.7"
+                            baseline="top"
+                            align="left"
+                            position="-1.8 1.1 0">
+                        </a-text>
+                        <!-- Bottom Left Screen -->
+                        <a-text
+                            value="Developed by:\nRoberto B. Figueroa Jr. and the NCODel Exhibit Committee"
+                            font="kelsonsans"
+                            width="1.7"
+                            baseline="top"
+                            align="left"
+                            position="-1.8 -1.1 0">
+                        </a-text>
+                        <!-- Top Right Image -->
+                        <a-image
+                            src="#ncodel"
+                            position="1 0.3 0"
+                            width="1.8"
+                            height="2"
+                        >
+                        </a-image>
+                        <!-- Bottom Label and Button -->
+                        <a-text
+                            value="VIEW\n-->"
+                            font="kelsonsans"
+                            width="4"
+                            align="center"
+                            position="0.75 -1.35 0">
+                        </a-text>
+                        <a-plane 
+                            material="transparent: true; opacity: 0.01"
+                            position="1.71 -1.35 0.02"
+                            width="0.5" height="0.5"
+                            url-on-click="url: https://framevr.io/ncodel-old">
+                        </a-plane>
+                    </a-entity>
+                    
+                    <!-- Project 8 -->
+                    <a-entity position="-10.4 2 2.05" rotation="0 90 0">
+                        <!-- Top Left Screen -->
+                        <a-text
+                            value="Perma GARDEN VR Tour\n
+                            A virtual tour of the gardening initiative of the Faculty of Management and Development Studies, created using 3DVista. Perma G.A.R.D.E.N. means Growing Appreciation toward Resilience, Development, Entrepreneurship and Nutrition. Tomatoes, eggplant, okra, squash, pechay, radish, green beans, water spinach, mint, variegated oregano, lagundi, rosemary, dill, and thyme are just some of the vegetables and herbs planted in the garden."
+                            font="kelsonsans"
+                            width="1.7"
+                            baseline="top"
+                            align="left"
+                            position="-1.8 1.1 0">
+                        </a-text>
+                        <!-- Bottom Left Screen -->
+                        <a-text
+                            value="Developed by:\nHiroshi Taniguchi and Roberto B. Figueroa Jr."
+                            font="kelsonsans"
+                            width="1.7"
+                            baseline="top"
+                            align="left"
+                            position="-1.8 -1.1 0">
+                        </a-text>
+                        <!-- Top Right Image -->
+                        <a-image
+                            src="#permagarden"
+                            position="1 0.3 0"
+                            width="1.8"
+                            height="2"
+                        >
+                        </a-image>
+                        <!-- Bottom Label and Button -->
+                        <a-text
+                            value="VIEW\n-->"
+                            font="kelsonsans"
+                            width="4"
+                            align="center"
+                            position="0.75 -1.35 0">
+                        </a-text>
+                        <a-plane 
+                            material="transparent: true; opacity: 0.01"
+                            position="1.71 -1.35 0.02"
+                            width="0.5" height="0.5"
+                            url-on-click="url: https://iop.upou.edu.ph/vrtours/permagarden">
+                        </a-plane>
+                    </a-entity>
+
+                    <!-- Project 9 -->
+                    <a-entity position="-10.4 2 7.05" rotation="0 90 0">
+                        <!-- Top Left Screen -->
+                        <a-text
+                            value="Forestry Ecosystem Services\n
+                            A virtual exploration of the Makiling Forest where the narrator discusses the various ecosystem services. This was developed with A-Frame.
+                            In partnership with the UPLB College of Forestry and Natural Resources"
+                            font="kelsonsans"
+                            width="1.7"
+                            baseline="top"
+                            align="left"
+                            position="-1.8 1.1 0">
+                        </a-text>
+                        <!-- Bottom Left Screen -->
+                        <a-text
+                            value="Developed by:\nJoshze Rica Esguerra"
+                            font="kelsonsans"
+                            width="1.7"
+                            baseline="top"
+                            align="left"
+                            position="-1.8 -1.1 0">
+                        </a-text>
+                        <!-- Top Right Image -->
+                        <a-image
+                            src="#forestry"
+                            position="1 0.3 0"
+                            width="1.8"
+                            height="2"
+                        >
+                        </a-image>
+                        <!-- Bottom Label and Button -->
+                        <a-text
+                            value="VIEW\n-->"
+                            font="kelsonsans"
+                            width="4"
+                            align="center"
+                            position="0.75 -1.35 0">
+                        </a-text>
+                        <a-plane 
+                            material="transparent: true; opacity: 0.01"
+                            position="1.71 -1.35 0.02"
+                            width="0.5" height="0.5"
+                            url-on-click="url: https://iop.upou.edu.ph/vrtours/forestry/">
+                        </a-plane>
+                    </a-entity>
+
+                </a-entity>
+            </a-entity>
+
+            <!-- a-box position="10.45 2.3 14.94" width="0.1" height="2" depth="1.8"></a-box -->
+        </a-scene>
+    </body>
+</html>
