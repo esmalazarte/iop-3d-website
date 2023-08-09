@@ -52,7 +52,7 @@ AFRAME.registerComponent('detect-ua', {
 
     if (AFRAME.utils.device.isMobile()) {
       // Add appropriate movement controls for mobile devices (touchscreen)
-      el.setAttribute('movement-controls', 'controls: keyboard, checkpoint, nipple; constrainToNavMesh: true');
+      el.setAttribute('movement-controls', 'controls: keyboard, checkpoint, nipple; constrainToNavMesh: false');
       el.setAttribute('nipple-controls', 'mode: static; lookJoystickEnabled: true; moveJoystickPosition: left');
       // Add components for checkpoint movement
       el.setAttribute('checkpoint-controls', 'mode: animate; animateSpeed: 13.0');
@@ -91,12 +91,6 @@ AFRAME.registerComponent('detect-ua', {
       while (checkpoints.hasChildNodes()) {
         checkpoints.removeChild(checkpoints.firstChild);
       }
-    }
-
-    // REMOVE CHECKPOINTS FOR ALL CASES
-    // Remove checkpoints from the scene
-    while (checkpoints.hasChildNodes()) {
-      checkpoints.removeChild(checkpoints.firstChild);
     }
 
     // // Add components for checkpoint movement
