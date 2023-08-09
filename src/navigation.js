@@ -49,7 +49,7 @@ AFRAME.registerComponent('detect-ua', {
     if (AFRAME.utils.device.isMobile()) {
       // Add appropriate movement controls for mobile devices (touchscreen)
       el.setAttribute('movement-controls', 'controls: keyboard, checkpoint, nipple; constrainToNavMesh: true');
-      el.setAttribute('nipple-controls', 'mode: static; lookJoystickEnabled: false; moveJoystickPosition: left');
+      el.setAttribute('nipple-controls', 'mode: static; lookJoystickEnabled: true; moveJoystickPosition: left');
       // Add components for checkpoint movement
       el.setAttribute('checkpoint-controls', 'mode: animate; animateSpeed: 13.0');
       el.setAttribute('event-set__start', '_target: #blink; _event: navigation-start; animation.property: opacity; animation.to: 1; animation.dur: 150; animation.easing: easeOutQuart');
@@ -61,7 +61,6 @@ AFRAME.registerComponent('detect-ua', {
       // Disable cursor and enable screen touch interactions by default
       cursor.object3D.visible = false;
       cursor.setAttribute('raycaster', 'objects: .disabled');
-      interactionCursor.remove();
       // Enable cursor when entering vr, and vice-versa
       scene.addEventListener('enter-vr', function () {
         cursor.object3D.visible = true;
