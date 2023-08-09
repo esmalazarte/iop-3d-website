@@ -71,10 +71,14 @@
 			<a-box color="red" checkpoint="offset: 0 0.4 0" position="3 -0.4 34.85" class="clickable"></a-box>
 			<a-box color="red" checkpoint="offset: 0 0.4 0" position="3 -0.4 39.85" class="clickable"></a-box>
 			<a-box color="red" checkpoint="offset: 0 0.4 0" position="3 -0.4 44.85" class="clickable"></a-box>
-			<!-- Projects Diorama -->
+			<!-- Projects Screen -->
 			<a-box color="red" checkpoint="offset: 0 0.4 0" position="0 -0.4 9" class="clickable"></a-box>
 			<!-- Project Backside -->
 			<a-box color="red" checkpoint="offset: 0 0.4 0" position="0 -0.4 44.85" class="clickable"></a-box>
+			<!-- Projects Diorama -->
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="1.2 -0.4 14" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="0.2 -0.4 13" class="clickable"></a-box>
+			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-0.8 -0.4 14" class="clickable"></a-box>
 			<!-- Right Project Details -->
 			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-8 -0.4 14.85" class="clickable"></a-box>
 			<a-box color="red" checkpoint="offset: 0 0.4 0" position="-8 -0.4 19.85" class="clickable"></a-box>
@@ -174,7 +178,8 @@
             event-set__enter="_event: mouseenter; color: green"
 		    event-set__leave="_event: mouseleave; color: red"
             scale="0.04 0.05 0.04"
-            position="-0.3 0.01 -0.075"></a-box>
+            position="-0.3 0.01 -0.075"
+			teleport="pos: -15.3 2 -2.75"></a-box>
             <!-- ISCO -->
             <a-box
             class="clickable"
@@ -182,7 +187,56 @@
             event-set__enter="_event: mouseenter; color: green"
 		    event-set__leave="_event: mouseleave; color: red"
             scale="0.04 0.05 0.04"
-            position="-0.23 0.01 0.215"></a-box>
+            position="-0.23 0.01 0.215"
+			teleport="pos: -12.4 2 10.5"></a-box>
+            <!-- Project -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="-0.0001 0.01 0.285"
+			teleport="pos: 0.2 2 13"></a-box>
+            <!-- About -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="0.29 0.01 0.07"
+			teleport="pos: 15.5 2 3.5"></a-box>
+        </a-entity>
+		<a-entity id="diorama_projects" position="0.2 0.74 13.85" rotation="0 0 0">
+            <a-entity gltf-model="#diorama" scale="0.02 0.02 0.02"></a-entity>
+            <!-- Lobby -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="0.07 0.01 -0.055"
+			teleport="pos: 2.75 2 -2.8"></a-box>
+            <!-- Research -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="-0.3 0.01 -0.075"
+			teleport="pos: -15.3 2 -2.75"></a-box>
+            <!-- ISCO -->
+            <a-box
+            class="clickable"
+            color="red"
+            event-set__enter="_event: mouseenter; color: green"
+		    event-set__leave="_event: mouseleave; color: red"
+            scale="0.04 0.05 0.04"
+            position="-0.23 0.01 0.215"
+			teleport="pos: -12.4 2 10.5"></a-box>
             <!-- Project -->
             <a-box
             class="clickable"
@@ -199,50 +253,7 @@
 		    event-set__leave="_event: mouseleave; color: red"
             scale="0.04 0.05 0.04"
             position="0.29 0.01 0.07"
-			teleport="pos: 15.5 2 3.5; rot: 0 0 0"></a-box>
-        </a-entity>
-		<a-entity id="diorama_projects" position="0.2 0.74 13.85" rotation="0 0 0">
-            <a-entity gltf-model="#diorama" scale="0.02 0.02 0.02"></a-entity>
-            <!-- Lobby -->
-            <a-box
-            class="clickable"
-            color="red"
-            event-set__enter="_event: mouseenter; color: green"
-		    event-set__leave="_event: mouseleave; color: red"
-            scale="0.04 0.05 0.04"
-            position="0.07 0.01 -0.055"></a-box>
-            <!-- Research -->
-            <a-box
-            class="clickable"
-            color="red"
-            event-set__enter="_event: mouseenter; color: green"
-		    event-set__leave="_event: mouseleave; color: red"
-            scale="0.04 0.05 0.04"
-            position="-0.3 0.01 -0.075"></a-box>
-            <!-- ISCO -->
-            <a-box
-            class="clickable"
-            color="red"
-            event-set__enter="_event: mouseenter; color: green"
-		    event-set__leave="_event: mouseleave; color: red"
-            scale="0.04 0.05 0.04"
-            position="-0.23 0.01 0.215"></a-box>
-            <!-- Project -->
-            <a-box
-            class="clickable"
-            color="red"
-            event-set__enter="_event: mouseenter; color: green"
-		    event-set__leave="_event: mouseleave; color: red"
-            scale="0.04 0.05 0.04"
-            position="-0.0001 0.01 0.285"></a-box>
-            <!-- About -->
-            <a-box
-            class="clickable"
-            color="red"
-            event-set__enter="_event: mouseenter; color: green"
-		    event-set__leave="_event: mouseleave; color: red"
-            scale="0.04 0.05 0.04"
-            position="0.29 0.01 0.07"></a-box>
+			teleport="pos: 15.5 2 3.5"></a-box>
         </a-entity>
 		<a-entity id="diorama_research" position="-15.3 0.74 -3.45" rotation="0 180 0">
             <a-entity gltf-model="#diorama" scale="0.02 0.02 0.02"></a-entity>
@@ -253,7 +264,8 @@
             event-set__enter="_event: mouseenter; color: green"
 		    event-set__leave="_event: mouseleave; color: red"
             scale="0.04 0.05 0.04"
-            position="0.07 0.01 -0.055"></a-box>
+            position="0.07 0.01 -0.055"
+			teleport="pos: 2.75 2 -2.8"></a-box>
             <!-- Research -->
             <a-box
             class="clickable"
@@ -269,7 +281,8 @@
             event-set__enter="_event: mouseenter; color: green"
 		    event-set__leave="_event: mouseleave; color: red"
             scale="0.04 0.05 0.04"
-            position="-0.23 0.01 0.215"></a-box>
+            position="-0.23 0.01 0.215"
+			teleport="pos: -12.4 2 10.5"></a-box>
             <!-- Project -->
             <a-box
             class="clickable"
@@ -277,7 +290,8 @@
             event-set__enter="_event: mouseenter; color: green"
 		    event-set__leave="_event: mouseleave; color: red"
             scale="0.04 0.05 0.04"
-            position="-0.0001 0.01 0.285"></a-box>
+            position="-0.0001 0.01 0.285"
+			teleport="pos: 0.2 2 13"></a-box>
             <!-- About -->
             <a-box
             class="clickable"
@@ -285,9 +299,10 @@
             event-set__enter="_event: mouseenter; color: green"
 		    event-set__leave="_event: mouseleave; color: red"
             scale="0.04 0.05 0.04"
-            position="0.29 0.01 0.07"></a-box>
+            position="0.29 0.01 0.07"
+			teleport="pos: 15.5 2 3.5"></a-box>
         </a-entity>
-		<a-entity id="diorama_isco" position="-11.7 0.71 10.5" rotation="0 90 0">
+		<a-entity id="diorama_isco" position="-11.7 0.74 10.5" rotation="0 90 0">
             <a-entity gltf-model="#diorama" scale="0.02 0.02 0.02"></a-entity>
             <!-- Lobby -->
             <a-box
@@ -296,7 +311,8 @@
             event-set__enter="_event: mouseenter; color: green"
 		    event-set__leave="_event: mouseleave; color: red"
             scale="0.04 0.05 0.04"
-            position="0.07 0.01 -0.055"></a-box>
+            position="0.07 0.01 -0.055"
+			teleport="pos: 2.75 2 -2.8"></a-box>
             <!-- Research -->
             <a-box
             class="clickable"
@@ -304,7 +320,8 @@
             event-set__enter="_event: mouseenter; color: green"
 		    event-set__leave="_event: mouseleave; color: red"
             scale="0.04 0.05 0.04"
-            position="-0.3 0.01 -0.075"></a-box>
+            position="-0.3 0.01 -0.075"
+			teleport="pos: -15.3 2 -2.75"></a-box>
             <!-- ISCO -->
             <a-box
             class="clickable"
@@ -320,7 +337,8 @@
             event-set__enter="_event: mouseenter; color: green"
 		    event-set__leave="_event: mouseleave; color: red"
             scale="0.04 0.05 0.04"
-            position="-0.0001 0.01 0.285"></a-box>
+            position="-0.0001 0.01 0.285"
+			teleport="pos: 0.2 2 13"></a-box>
             <!-- About -->
             <a-box
             class="clickable"
@@ -328,7 +346,8 @@
             event-set__enter="_event: mouseenter; color: green"
 		    event-set__leave="_event: mouseleave; color: red"
             scale="0.04 0.05 0.04"
-            position="0.29 0.01 0.07"></a-box>
+            position="0.29 0.01 0.07"
+			teleport="pos: 15.5 2 3.5"></a-box>
         </a-entity>
 		<a-entity id="diorama_about" position="14.8 0.74 3.5" rotation="0 -90 0">
             <a-entity gltf-model="#diorama" scale="0.02 0.02 0.02"></a-entity>
@@ -340,7 +359,7 @@
 		    event-set__leave="_event: mouseleave; color: red"
             scale="0.04 0.05 0.04"
             position="0.07 0.01 -0.055"
-			teleport="pos: 2.75 2 -2.8; rot: 0 180 0"></a-box>
+			teleport="pos: 2.75 2 -2.8"></a-box>
             <!-- Research -->
             <a-box
             class="clickable"
@@ -348,7 +367,8 @@
             event-set__enter="_event: mouseenter; color: green"
 		    event-set__leave="_event: mouseleave; color: red"
             scale="0.04 0.05 0.04"
-            position="-0.3 0.01 -0.075"></a-box>
+            position="-0.3 0.01 -0.075"
+			teleport="pos: -15.3 2 -2.75"></a-box>
             <!-- ISCO -->
             <a-box
             class="clickable"
@@ -356,7 +376,8 @@
             event-set__enter="_event: mouseenter; color: green"
 		    event-set__leave="_event: mouseleave; color: red"
             scale="0.04 0.05 0.04"
-            position="-0.23 0.01 0.215"></a-box>
+            position="-0.23 0.01 0.215"
+			teleport="pos: -12.4 2 10.5"></a-box>
             <!-- Project -->
             <a-box
             class="clickable"
@@ -364,7 +385,8 @@
             event-set__enter="_event: mouseenter; color: green"
 		    event-set__leave="_event: mouseleave; color: red"
             scale="0.04 0.05 0.04"
-            position="-0.0001 0.01 0.285"></a-box>
+            position="-0.0001 0.01 0.285"
+			teleport="pos: 0.2 2 13"></a-box>
             <!-- About -->
             <a-box
             class="clickable"

@@ -143,7 +143,7 @@ AFRAME.registerComponent('teleport', {
         // cameraRig.setAttribute('position', tpDestination);
         // cameraRig.setAttribute('rotation', tpRotation);
         cameraRig.setAttribute('position', data.pos);
-        cameraRig.setAttribute('rotation', data.rot);
+        // cameraRig.setAttribute('rotation', data.rot);
         el.emit('animationend');
       }, 1000);
     });
