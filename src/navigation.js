@@ -77,7 +77,7 @@ AFRAME.registerComponent('detect-ua', {
     } else if (AFRAME.utils.device.checkHeadsetConnected()) {
       // If the user is using a VR headset, use the appropriate controls
       cursor.remove();
-      el.setAttribute('position', '0 1 0');
+      el.setAttribute('position', '0 0.6 0');
       el.setAttribute('movement-controls', 'controls: keyboard, trackpad, gamepad, checkpoint; constrainToNavMesh: true');
       // Add components for checkpoint movement
       el.setAttribute('checkpoint-controls', 'mode: animate; animateSpeed: 13.0');
