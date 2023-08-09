@@ -93,6 +93,12 @@ AFRAME.registerComponent('detect-ua', {
       }
     }
 
+    // REMOVE CHECKPOINTS FOR ALL CASES
+    // Remove checkpoints from the scene
+    while (checkpoints.hasChildNodes()) {
+      checkpoints.removeChild(checkpoints.firstChild);
+    }
+
     // // Add components for checkpoint movement
     // el.setAttribute('checkpoint-controls', 'mode: animate; animateSpeed: 13.0');
     // el.setAttribute('event-set__start', '_target: #blink; _event: navigation-start; animation.property: opacity; animation.to: 1; animation.dur: 150; animation.easing: easeOutQuart');
