@@ -44,7 +44,11 @@ AFRAME.registerComponent('detect-ua', {
     var cursor = document.querySelector("#cursor");
     var mouseCursor = document.querySelector("#mouseCursor");
     var interactionCursor = document.querySelector("#interactionCursor");
-    var interactionMouseCursor = document.querySelector("#interactionMouseCursor");
+
+    // // Remove checkpoints from the scene
+    // while (checkpoints.hasChildNodes()) {
+    //   checkpoints.removeChild(checkpoints.firstChild);
+    // }
 
     if (AFRAME.utils.device.isMobile()) {
       // Add appropriate movement controls for mobile devices (touchscreen)
@@ -73,9 +77,8 @@ AFRAME.registerComponent('detect-ua', {
     } else if (AFRAME.utils.device.checkHeadsetConnected()) {
       // If the user is using a VR headset, use the appropriate controls
       cursor.remove();
-      mouseCursor.remove();
-      interactionCursor.remove();
-      el.setAttribute('movement-controls', 'controls: keyboard, checkpoint; constrainToNavMesh: true');
+      el.setAttribute('position', '0 1 0');
+      el.setAttribute('movement-controls', 'controls: keyboard, trackpad, gamepad, checkpoint; constrainToNavMesh: true');
       // Add components for checkpoint movement
       el.setAttribute('checkpoint-controls', 'mode: animate; animateSpeed: 13.0');
       el.setAttribute('event-set__start', '_target: #blink; _event: navigation-start; animation.property: opacity; animation.to: 1; animation.dur: 150; animation.easing: easeOutQuart');
@@ -89,6 +92,11 @@ AFRAME.registerComponent('detect-ua', {
         checkpoints.removeChild(checkpoints.firstChild);
       }
     }
+
+    // // Add components for checkpoint movement
+    // el.setAttribute('checkpoint-controls', 'mode: animate; animateSpeed: 13.0');
+    // el.setAttribute('event-set__start', '_target: #blink; _event: navigation-start; animation.property: opacity; animation.to: 1; animation.dur: 150; animation.easing: easeOutQuart');
+    // el.setAttribute('event-set__end', '_target: #blink; _event: navigation-end; animation.to: 0');
 
   }
 });
@@ -149,5 +157,24 @@ AFRAME.registerComponent('teleport', {
     });
 
     el.setAttribute('event-set__end', '_target: #blink; _event: animationend; animation.to: 0');
+  }
+});
+
+AFRAME.registerComponent('model-opacity', {
+  schema: {default: 1.0},
+  init: function () {
+    this.el.addEventListener('model-loaded', this.update.bind(this));
+  },
+  update: function () {
+    var mesh = this.el.getObject3D('mesh');
+    var data = this.data;
+    if (!mesh) { return; }
+    mesh.traverse(function (node) {
+      if (node.isMesh) {
+        node.material.opacity = data;
+        node.material.transparent = data < 1.0;
+        node.material.needsUpdate = true;
+      }
+    });
   }
 });
