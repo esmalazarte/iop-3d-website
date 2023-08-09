@@ -24,6 +24,9 @@
                 <img id="profile7" src="assets/people/oruga.png"></img>
                 <img id="profile8" src="assets/people/hawkinson.jpeg"></img>
                 <img id="profile9" src="assets/people/taniguchi.jpeg"></img>
+                <img id="futurehub" src="assets/partners/futurehub.png"></img>
+                <img id="mavr" src="assets/partners/mavr.png"></img>
+                <img id="minted" src="assets/partners/minted.png"></img>
             </a-assets>
 
             <!-- Camera Rig -->
@@ -110,7 +113,7 @@
                     <a-plane 
                         color="black"
                         rotation="0 90 0"
-                        position="0 -0.3 1.95"
+                        position="0 -0.3 1.94"
                         height="1.75"
                         width="0.75">
                         <a-entity
@@ -296,10 +299,66 @@
                         rotation="0 270 0"
                         position="9.25 3.4 9.4">
                     </a-text>
+
+                    <!-- Right Screen -->
+                    <a-entity position="4 2 14.25">
+                        <a-text
+                            value="Partners:\n\n
+                            Multimedia and Immersive or Neoteric Technology for Education and Development Laboratory (MINTED Lab)\n\n
+                            The Japan Association for Language Teaching (JALT) Mixed, Augmented, and Virtual Realities (MAVR)\n\n
+                            Kyoto University of Foreign Studies Future Hub"
+                            font="kelsonsans"
+                            width="3"
+                            baseline="top"
+                            align="left"
+                            rotation="0 180 0"
+                            position="2.1 1.4 0">
+                        </a-text>
+                        <a-image 
+                            width="0.8"
+                            height="0.6"
+                            src="#minted"
+                            position="-1.5 0.7 -0.02"
+                            rotation="0 180 0">
+                        </a-image>
+                        <a-image 
+                            width="0.8"
+                            height="0.5"
+                            src="#mavr"
+                            position="-1.5 0 -0.02"
+                            rotation="0 180 0">
+                        </a-image>
+                        <a-image 
+                            width="0.8"
+                            height="0.5"
+                            src="#futurehub"
+                            position="-1.5 -0.7 -0.02"
+                            rotation="0 180 0">
+                        </a-image>
+                    </a-entity>
+
+                    <!-- Contact -->
+                    <a-plane position="-6.5 2.3 13.8" rotation="0 180 0" height="1.5" width="2.7" color="#2b2d34"></a-plane>
+                    <a-text
+                        value="Contact Us:\n
+                        iop@upou.edu.ph
+                        iopdirector@upou.edu.ph\n
+                        University of the Philippines Open University
+                        Los Baños, Laguna, Philippines, 4031
+                        (+6349) 536-6001 to 06
+                        Monday - Friday: 8:00 AM - 5:00 PM PHT"
+                        font="kelsonsans"
+                        width="2"
+                        baseline="top"
+                        align="left"
+                        rotation="0 180 0"
+                        position="-5.6 2.8 13.75">
+                    </a-text>
                 </a-entity>
 
             </a-entity>
 
+            <a-box position="10.45 2.3 13.94" width="0.1" height="2" depth="1.8"></a-box>
         </a-scene>
     </body>
 </html>
