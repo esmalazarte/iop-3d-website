@@ -133,6 +133,7 @@ AFRAME.registerComponent('scrollcontrols', {
         let scrollDownArrow = document.createElement('a-text');
 
         // Scroll button properties (static)
+        scrollUp.setAttribute('class', 'clickable');
         scrollUp.setAttribute('radius', '0.25');
         scrollUp.setAttribute('color', this.data.bgColor);
         scrollUp.setAttribute('position', '-0.25 0 0');
@@ -144,6 +145,7 @@ AFRAME.registerComponent('scrollcontrols', {
         scrollUpArrow.setAttribute('scale', '2.5 2.5 2.5');
         scrollUpArrow.setAttribute('font', 'mozillavr')
 
+        scrollDown.setAttribute('class', 'clickable');
         scrollDown.setAttribute('radius', '0.25');
         scrollDown.setAttribute('color', this.data.bgColor);
         scrollDown.setAttribute('position', '0.25 0 0');
@@ -260,6 +262,8 @@ AFRAME.registerComponent('listposts', {
             if (titleText.length > this.data.wrapCount * 2 - 5) {
                 titleText = titleText.slice(0, this.data.wrapCount * 2 - 5) + '...';
             }
+
+            postTitle.setAttribute('class', 'clickable');
 
             // Set attributes of Title Card and Text
             postTitle.setAttribute('geometry', {
