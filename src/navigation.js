@@ -23,6 +23,28 @@ AFRAME.registerComponent('url-on-click', {
   }
 });
 
+// Opens a new browser window to the URL passed to it
+// Usage: Attach to any entity and pass the url attribute
+AFRAME.registerComponent('url-on-click-window', {
+  schema: {
+    url: { type: 'string', default: '' }
+  },
+
+  init: function () {
+    let el = this.el;
+    let data = this.data;
+
+    el.setAttribute('event-set__click', '_target: #blink; _event: click; animation.property: opacity; animation.to: 1; animation.dur: 1000; animation.easing: easeOutQuart; animation.delay: 300');
+
+    el.addEventListener('click', function () {
+      setTimeout(function () {
+        el.sceneEl.exitVR();
+        window.open(data.url);
+      }, 1000);
+    });
+  }
+});
+
 AFRAME.registerComponent('button-press', {
   init: function () {
     var el = this.el;
