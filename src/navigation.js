@@ -75,7 +75,6 @@ AFRAME.registerComponent('detect-ua', {
       cursor.remove();
       mouseCursor.remove();
       interactionCursor.remove();
-      interactionMouseCursor.remove();
       el.setAttribute('movement-controls', 'controls: keyboard, checkpoint; constrainToNavMesh: true');
       // Add components for checkpoint movement
       el.setAttribute('checkpoint-controls', 'mode: animate; animateSpeed: 13.0');
@@ -84,12 +83,11 @@ AFRAME.registerComponent('detect-ua', {
     } else {
       // Otherwise, fall back on just keyboard movement controls
       mouseCursor.remove();
-      interactionMouseCursor.remove();
       el.setAttribute('movement-controls', 'controls: keyboard; constrainToNavMesh: true');
-      // // Remove checkpoints from the scene
-      // while (checkpoints.hasChildNodes()) {
-      //   checkpoints.removeChild(checkpoints.firstChild);
-      // }
+      // Remove checkpoints from the scene
+      while (checkpoints.hasChildNodes()) {
+        checkpoints.removeChild(checkpoints.firstChild);
+      }
     }
 
   }
