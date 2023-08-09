@@ -65,7 +65,7 @@ AFRAME.registerComponent('detect-ua', {
       // Enable cursor when entering vr, and vice-versa
       scene.addEventListener('enter-vr', function () {
         cursor.object3D.visible = true;
-        cursor.setAttribute('raycaster', 'objects: .clickable, .interactable');
+        cursor.setAttribute('raycaster', 'objects: .clickable');
       });
       scene.addEventListener('exit-vr', function () {
         cursor.object3D.visible = false;
@@ -87,10 +87,10 @@ AFRAME.registerComponent('detect-ua', {
       mouseCursor.remove();
       interactionMouseCursor.remove();
       el.setAttribute('movement-controls', 'controls: keyboard; constrainToNavMesh: true');
-      // Remove checkpoints from the scene
-      while (checkpoints.hasChildNodes()) {
-        checkpoints.removeChild(checkpoints.firstChild);
-      }
+      // // Remove checkpoints from the scene
+      // while (checkpoints.hasChildNodes()) {
+      //   checkpoints.removeChild(checkpoints.firstChild);
+      // }
     }
 
   }
