@@ -3,7 +3,7 @@ const https = require('https')
 const fs = require('fs')
 
 const app = express()
-app.use(express.static('.', {index: 'static/index.html'}))
+app.use(express.static('.', {index: 'index.html'}))
 
 // HTTPS (for VR mode)
 var options = {
