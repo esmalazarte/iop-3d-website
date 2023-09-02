@@ -11,39 +11,6 @@ const colorScheme = {
     cyan: "#49A3B7"
 }
 
-// const projects = [
-//     {
-//         title: "",
-//         description: "",
-//         authors: [],
-//         link: ""
-//     }
-// ];
-
-// const publications = [
-//     {
-//         title: "Virtual Reality Photo-based Tours for Teaching Filipino Vocabulary in an Online Class in Japan: Transitioning into the New Normal",
-//         date: "December 4, 2022",
-//         description: "",
-//         authors: ["Figueroa Jr, R. B.", "Gil, F. A. P", "Taniguchi, H.", "Esguerra, J. R."],
-//         link: "https://doi.org/10.5281/zenodo.7505128"
-//     },
-//     {
-//         title: "Piloting Virtual Reality Photo-Based Tours among Students of a Filipino Language Class: A Case of Emergency Remote Teaching in Japan",
-//         date: "January 5, 2023",
-//         description: "",
-//         authors: ["Figueroa, R. B.", "Palma Gil, F. A.", "Taniguchi, H"],
-//         link: "https://doi.org/10.48550/arXiv.2301.01904"
-//     },
-//     {
-//         title: "Virtualizing a University Campus Tour: A Pilot Study on its Usability and User Experience, and Perception",
-//         date: "November 20, 2020",
-//         description: "",
-//         authors: ["Figueroa, R.B.", "Mendoza, G. A. G.", "Fajardo, J. C. C.", "Tan, S. E.", "Yassin, E.", "Thian, T. H."],
-//         link: "https://ijitgeb.org/ijitgeb/article/view/60"
-//     },
-// ]
-
 function filterText(text){
     text = text.replace(/<[^<>]*>/g, '');   // filter html tags
     text = text.replace(/\n{3,}/g, '\n\n');  // replace 3 or more newlines to 2

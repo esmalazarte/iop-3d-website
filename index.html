@@ -7,9 +7,10 @@
 	<script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@d85de74/dist/aframe-extras.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
 	<script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
-	<script src="../src/navigation.js"></script>
-	<script src="../src/content.js"></script>
-	<script src="../src/entities.js"></script>
+	<script src="src/navigation.js"></script>
+	<script src="src/content.js"></script>
+	<script src="src/entities.js"></script>
+	<script src="src/publications.js"></script>
 </head>
 
 <body>
@@ -421,16 +422,6 @@
             position="0.29 0.01 0.07"></a-box>
         </a-entity>
 
-		<!-- BOOKS -->
-		<a-entity position="-17.85 1.8 3">
-			<a-box
-			class="clickable"
-			color="blue"
-			scale="0.15 0.8 0.5"
-			event-set__slideout="_event: mouseenter; animation.property: position; animation.to: '0 0 -0.5'; animation.dur: 350; animation.easing: easeOutQuart"
-			event-set__slidein="_event: mouseleave; animation.to: '0 0 0'"></a-box>
-		</a-entity>
-
 		<!-- Camera Rig -->
 		<a-entity id="rig"
 		rotation="0 180 0"
@@ -532,6 +523,11 @@
 				scrollcontrols="targetID: #newsList; scrollDistance: 0.1">
 			</a-entity>
 		</a-entity>
+
+		<!-- PUBLICATIONS -->
+		<a-entity position="-17.85 1.8 3" publication="index: 0"></a-entity>
+		<a-entity position="-18.35 1.8 3" publication="index: 1"></a-entity>
+		<a-entity position="-18.85 1.8 3" publication="index: 2"></a-entity>
 
 		<!-- ABOUT ROOM -->
 		<a-entity position="20 0 0">
