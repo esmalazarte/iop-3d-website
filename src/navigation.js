@@ -206,3 +206,64 @@ AFRAME.registerComponent('model-opacity', {
     });
   }
 });
+
+AFRAME.registerComponent('diorama', {
+    init: function () {
+        let dioramamodel = document.createElement("a-entity");
+        let lobbyBtn = document.createElement("a-box");
+        let pubsBtn = document.createElement("a-box");
+        let iscoBtn = document.createElement("a-box");
+        let projsBtn = document.createElement("a-box");
+        let aboutBtn = document.createElement("a-box");
+        
+        dioramamodel.setAttribute("gltf-model", "#diorama");
+        dioramamodel.setAttribute("scale", "0.02 0.02 0.02");
+
+        lobbyBtn.setAttribute("class", "clickable");
+        lobbyBtn.setAttribute("color", "red");
+        lobbyBtn.setAttribute("event-set__enter", "_event: mouseenter; color: green");
+        lobbyBtn.setAttribute("event-set__leave" , "_event: mouseleave; color: red");
+        lobbyBtn.setAttribute("scale", "0.04 0.05 0.04");
+        lobbyBtn.setAttribute("position", "0.07 0.01 -0.055");
+        lobbyBtn.setAttribute("teleport", "pos: 2.75 0 -2.8");
+
+        pubsBtn.setAttribute("class", "clickable");
+        pubsBtn.setAttribute("color", "red");
+        pubsBtn.setAttribute("event-set__enter", "_event: mouseenter; color: green");
+        pubsBtn.setAttribute("event-set__leave" , "_event: mouseleave; color: red");
+        pubsBtn.setAttribute("scale", "0.04 0.05 0.04");
+        pubsBtn.setAttribute("position", "-0.3 0.01 -0.075");
+        pubsBtn.setAttribute("teleport", "pos: -15.3 0 -2.75");
+
+        iscoBtn.setAttribute("class", "clickable");
+        iscoBtn.setAttribute("color", "red");
+        iscoBtn.setAttribute("event-set__enter", "_event: mouseenter; color: green");
+        iscoBtn.setAttribute("event-set__leave" , "_event: mouseleave; color: red");
+        iscoBtn.setAttribute("scale", "0.04 0.05 0.04");
+        iscoBtn.setAttribute("position", "-0.23 0.01 0.215");
+        iscoBtn.setAttribute("teleport", "pos: -12.4 0 10.5");
+
+        projsBtn.setAttribute("class", "clickable");
+        projsBtn.setAttribute("color", "red");
+        projsBtn.setAttribute("event-set__enter", "_event: mouseenter; color: green");
+        projsBtn.setAttribute("event-set__leave" , "_event: mouseleave; color: red");
+        projsBtn.setAttribute("scale", "0.04 0.05 0.04");
+        projsBtn.setAttribute("position", "-0.0001 0.01 0.285");
+        projsBtn.setAttribute("teleport", "pos: 0.2 0 13");
+
+        aboutBtn.setAttribute("class", "clickable");
+        aboutBtn.setAttribute("color", "red");
+        aboutBtn.setAttribute("event-set__enter", "_event: mouseenter; color: green");
+        aboutBtn.setAttribute("event-set__leave" , "_event: mouseleave; color: red");
+        aboutBtn.setAttribute("scale", "0.04 0.05 0.04");
+        aboutBtn.setAttribute("position", "0.29 0.01 0.07");
+        aboutBtn.setAttribute("teleport", "pos: 15.5 0 3.5");
+
+        this.el.appendChild(dioramamodel);
+        this.el.appendChild(lobbyBtn);
+        this.el.appendChild(pubsBtn);
+        this.el.appendChild(iscoBtn);
+        this.el.appendChild(projsBtn);
+        this.el.appendChild(aboutBtn);
+    },
+});
