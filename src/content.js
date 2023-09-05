@@ -12,14 +12,19 @@ const colorScheme = {
 }
 
 function filterText(text){
-    text = text.replace(/<[^<>]*>/g, '');   // filter html tags
-    text = text.replace(/\n{3,}/g, '\n\n');  // replace 3 or more newlines to 2
-    text = text.replace(/&nbsp;/g, ' ');    // replace non-breaking space
-    text = text.replace(/&lt;/g, '<');      // replace less than sign
-    text = text.replace(/&gt;/g, '>');      // replace greater than sign
-    text = text.replace(/&amp;/g, '&');      // replace ampersand sign
-    text = text.replace(/&quot;/g, '"');      // replace quotation sign
-    text = text.replace(/&apos;/g, "'");      // replace apostrophe sign
+    text = text.replace(/<style>.*<\/style>/g, ''); // filter style tag
+    text = text.replace(/<[^<>]*>/g, '');           // filter html tags
+    text = text.replace(/\n{3,}/g, '\n\n');         // replace 3 or more newlines to 2
+    text = text.replace(/&nbsp;/g, ' ');            // replace non-breaking space
+    text = text.replace(/&lt;/g, '<');              // replace less than sign
+    text = text.replace(/&gt;/g, '>');              // replace greater than sign
+    text = text.replace(/&amp;/g, '&');             // replace ampersand sign
+    text = text.replace(/&#8216;/g, "'");           // replace apostrophe sign
+    text = text.replace(/&#8217;/g, "'");           // replace apostrophe sign
+    text = text.replace(/’/g, "'");                 // replace apostrophe sign
+    text = text.replace(/&#8220;/g, '"');           // replace quotation sign
+    text = text.replace(/&#8221;/g, '"');           // replace quotation sign
+    text = text.replace(/ñ/g, 'n');                 // replace enye (html cannot render it)
 
     return text;
 }
@@ -62,7 +67,7 @@ AFRAME.registerComponent('postview', {
             width: this.data.width,
             baseline: 'top',
             zOffset: 0.005,
-            value: post.title.rendered + '\n' + filterText(post.content.rendered),
+            value: filterText(post.title.rendered) + '\n' + filterText(post.content.rendered),
         });
 
         // Set position to near top of container screen
@@ -77,8 +82,8 @@ AFRAME.registerComponent('postview', {
 AFRAME.registerComponent('scrollcontrols', {
     schema: {
         targetID: {type: 'string'},
-        bgColor: {default: colorScheme.offwhite},
-        textColor: {default: colorScheme.darkgray},
+        bgColor: {default: "#a8adbb"},
+        textColor: {default: "#979797"},
         scrollDistance: {type: 'float', default: 1}
     },
 
@@ -94,33 +99,37 @@ AFRAME.registerComponent('scrollcontrols', {
         let parentWorldPos = new THREE.Vector3();
 
         // Initialize scroll entities
-        let scrollUp = document.createElement('a-circle');
+        let scrollUp = document.createElement('a-cylinder');
         let scrollUpArrow = document.createElement('a-text');
-        let scrollDown = document.createElement('a-circle');
+        let scrollDown = document.createElement('a-cylinder');
         let scrollDownArrow = document.createElement('a-text');
 
         // Scroll button properties (static)
         scrollUp.setAttribute('class', 'clickable');
         scrollUp.setAttribute('radius', '0.25');
+        scrollUp.setAttribute('height', '0.05');
+        scrollUp.setAttribute('rotation', '90 0 0');
         scrollUp.setAttribute('color', this.data.bgColor);
         scrollUp.setAttribute('position', '-0.25 0 0');
         scrollUp.setAttribute('scale', '0.5 0.5 0.5');
         scrollUpArrow.setAttribute('value', '>');
         scrollUpArrow.setAttribute('color', this.data.textColor);
-        scrollUpArrow.setAttribute('position', '-0.275 -0.1 0.005');
-        scrollUpArrow.setAttribute('rotation', '0 0 90');
+        scrollUpArrow.setAttribute('position', '-0.275 0.025 0.1');
+        scrollUpArrow.setAttribute('rotation', '-90 0 90');
         scrollUpArrow.setAttribute('scale', '2.5 2.5 2.5');
         scrollUpArrow.setAttribute('font', 'mozillavr')
 
         scrollDown.setAttribute('class', 'clickable');
         scrollDown.setAttribute('radius', '0.25');
+        scrollDown.setAttribute('height', '0.05');
+        scrollDown.setAttribute('rotation', '90 0 0');
         scrollDown.setAttribute('color', this.data.bgColor);
         scrollDown.setAttribute('position', '0.25 0 0');
         scrollDown.setAttribute('scale', '0.5 0.5 0.5');
         scrollDownArrow.setAttribute('value', '<');
         scrollDownArrow.setAttribute('color', this.data.textColor);
-        scrollDownArrow.setAttribute('position', '-0.275 -0.1 0.005');
-        scrollDownArrow.setAttribute('rotation', '0 0 90');
+        scrollDownArrow.setAttribute('position', '-0.275 0.025 0.1');
+        scrollDownArrow.setAttribute('rotation', '-90 0 90');
         scrollDownArrow.setAttribute('scale', '2.5 2.5 2.5');
         scrollDownArrow.setAttribute('font', 'mozillavr')
         
@@ -260,7 +269,7 @@ AFRAME.registerComponent('listposts', {
             // Change post content when clicked on title card
             postTitle.addEventListener('click', function() {
                 postView.setAttribute('text', {
-                    value: posts[i].title.rendered + '\n' + filterText(posts[i].content.rendered)
+                    value: filterText(posts[i].title.rendered) + '\n' + filterText(posts[i].content.rendered)
                 })
                 postView.object3D.position.y = postView.parentElement.getAttribute('geometry').height / 2.25
             })
@@ -288,48 +297,3 @@ AFRAME.registerComponent('listposts', {
         }
     }
 });
-
-// AFRAME.registerComponent('monitorview', {
-//     schema: {
-//         category: {type: 'string'},
-//         width: {type: 'int', default: 6},
-//         height: {type: 'int', default: 4}
-//     },
-
-//     init: function () {
-//         let ctgData;
-//         let yPos = this.el.object3D.position.y;
-        
-//         switch (this.data.category) {
-//             case 'publications':
-//                 ctgData = publications;
-//                 break;
-//             case 'projects':
-//                 ctgData = projects;
-//                 break;
-//             default:
-//                 ctgData = projects;
-//         }
-
-//         for (let i=0; i<ctgData.length; i++){
-//             let card = document.createElement('a-entity');
-
-//             card.setAttribute('geometry', {
-//                 primitive: 'box',
-//                 width: this.data.width,
-//                 height: this.data.height,
-//                 depth: 0.005
-//             })
-
-//             let text = document.createElement('a-text')
-
-//             text.setAttribute('value', ctgData[i].title);
-//             text.object3D.position.y = yPos;
-//             yPos -= 1;
-
-//             this.el.appendChild(text)
-//         }
-
-//     },
-
-// });
