@@ -31,6 +31,7 @@
             <a-asset-item id="diorama" src="./models/Diorama_optimized.glb"></a-asset-item>
 			<a-asset-item id="navmesh" src="./models/Nav.glb"></a-asset-item>
 
+			<img id="sky" src="assets/sky.jpg"></img>
 			<img id="header" src="assets/UPOU Website Header.png"></img>
 			<img id="iopvr" src="assets/iopvr.png"></img>
 			<img id="2dicon" src="assets/2dicon.png"></img>
@@ -78,6 +79,9 @@
 
 		<!-- Map -->
 		<a-entity gltf-model="#map" position="0 0 0"></a-entity>
+
+		<!-- Sky -->
+		<a-sky src="#sky" rotation="0 244 0"></a-sky>
 		
 		<!-- Dioramas -->
         <a-entity diorama id="diorama_lobby" position="3.675 0.74 -3.2" rotation="0 0 0"></a-entity>
