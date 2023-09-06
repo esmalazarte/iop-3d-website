@@ -8,6 +8,7 @@
 	<script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@d85de74/dist/aframe-extras.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
 	<script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+	<script src="src/simple-navmesh-constraint.js"></script>
 	<script src="src/navigation.js"></script>
 	<script src="src/content.js"></script>
 	<script src="src/entities.js"></script>
@@ -61,6 +62,7 @@
 
 		<!-- Navmesh -->
 		<!-- <a-entity gltf-model="#navmesh" nav-mesh model-opacity="0"></a-entity> -->
+		<a-gltf-model class="navmesh" src="#navmesh" visible="false"></a-gltf-model>
 
 		<!-- Lighting -->
 		<a-entity light="type: ambient; color: #E6EDFF; intensity: 1"></a-entity>
@@ -87,13 +89,15 @@
 		<!-- Camera Rig -->
 		<a-entity id="rig"
 		rotation="0 180 0"
-		movement-controls
+		position="0 0 0"
+		simple-navmesh-constraint="navmesh:.navmesh; fall:0.5; height:0;"
+		movement-controls="camera: #head"
 		checkpoint-controls
 		sound="src: #footsteps; positional: false"
 		detect-ua>
 
 			<!-- Camera -->
-			<a-entity camera position="0 2 0" look-controls="pointerLockEnabled: true; magicWindowTrackingEnabled: false; touchEnabled: false">
+			<a-entity id="head" camera position="0 2 0" look-controls="pointerLockEnabled: true; magicWindowTrackingEnabled: false; touchEnabled: false">
 				<!-- Camera Cursor -->
 				<a-entity id="cursor"
 				cursor="rayOrigin: entity"
@@ -102,7 +106,6 @@
             	material="color: black; shader: flat"
 				animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
 				animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
-				raycaster="far: 6; origin: 0, 0, 1"
 				></a-entity>
 			</a-entity>
 
