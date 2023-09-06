@@ -47,7 +47,21 @@ const people = [
         description: "Education:\n- Bachelor of Arts in Araling Pilipino (May Disiplina sa Panitikan at Sikolohiya)\n- Master of Arts in Araling Pilipino (May Disiplina sa Panitikan at Sikolohiya)\n- PhD Filipino: Pagpaplanong Pangwika sa University of the Philippines Diliman\n\nProfile:\nhttps://www.linkedin.com/in/jayson-petras-b1222347/",
         imageid: "#petras",
         profile: "https://www.linkedin.com/in/jayson-petras-b1222347/"
-    }
+    },
+    {
+        name: "Joshze Rica Esguerra",
+        role: "Junior Project Officer",
+        description: "Education:\n- Bachelor of Science in Computer Science, University of the Philippines Los Banos\n\nProfile:\nhttps://www.linkedin.com/in/joshze-rica-esguerra-8679a7112/",
+        imageid: "#esguerra",
+        profile: "https://www.linkedin.com/in/joshze-rica-esguerra-8679a7112/"
+    },
+    {
+        name: "Lexter Mangubat",
+        role: "Collaborating Researcher",
+        description: "Specialization:\nInformation Systems Research\n\nProfile:\nhttps://www.linkedin.com/in/lexter-mangubat-429b3a16b/",
+        imageid: "#mangubat",
+        profile: "https://www.linkedin.com/in/lexter-mangubat-429b3a16b/"
+    },
 ]
 
 AFRAME.registerComponent('profile', {
