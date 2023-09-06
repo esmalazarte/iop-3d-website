@@ -30,9 +30,44 @@ const projects = [
     {
         name: "NCODeL Virtual Exhibit",
         description: "In November 2022, the university held the National Conference for Open and Distance eLearning (NCODeL). The virtual exhibit was built on FrameVR, a web-based platform for hosting immersive collaboration spaces.",
-        developers: "Roberto B. Figueroa Jr. and the NCODel Exhibit Committee",
+        developers: "NCODeL Exhibit Committee, headed by IOP Director Dr. Roberto Figueroa Jr.",
         imageid: "#ncodel",
         link: "https://framevr.io/ncodel-old"
+    },
+    {
+        name: "Tri-Conference 2023 Virtual Exhibit",
+        description: "The UP Open University Tri-Conference is a three-conference-in-one with the theme \"Sustainability in Education: Intersections, Ideation, Innovations\".",
+        developers: "Tri-con Exhibit Committee, headed by IOP Director Dr. Roberto Figueroa Jr.",
+        imageid: "#triconexhibit",
+        link: "https://framevr.io/upou-exhibit",
+    },
+    {
+        name: "Tri-Conference 2023 Augmented Reality Tour",
+        description: "As part of the exhibit committee, the IOP Program developed a short tour where guests in the physical exhibit can experience augmented reality. Users can use their own smartphones to scan the markers around the exhibit to learn more information about each display.\n\nTechnologies used include A-Frame, AR.js, Asset Forge, Mixamo, and Blender.",
+        developers: "Joshze Rica Esguerra",
+        imageid: "#triconar",
+        link: "https://iop.upou.edu.ph/ar/exhibit",
+    },
+    {
+        name: "HANDI System",
+        description: "HANDI System: Hand Adept Non-Controller Dynamic Interaction System is a virtual reality interaction system that serves as a step toward intuitive immersion. The goal of this project is to eliminate the need for controllers and instead use hand gestures to pave the way for a seamless and natural connection between users and the virtual world.\n\nThe project used A-Frame, ThreeJS, and Web XR hands which were used in tracking the joints in the hand.",
+        developers: "Rovie de Ramos, UPLB BS Applied Physics Intern for Midyear 2023",
+        imageid: "#handi",
+        link: "https://iop.upou.edu.ph/vr/handi",
+    },
+    {
+        name: "WIKA 1 Virtual Tour",
+        description: "As part of Wika 1 Module 10: Pagsasabuhay, Pagpapatatag, at Pag-uswag ng Wikang Filipino.\n\nIn partnership with the UP Diliman Sentro ng Wikang Filipino",
+        developers: "Hiroshi Taniguchi and Roberto B. Figueroa Jr.",
+        imageid: "#wika1",
+        link: "https://iop.upou.edu.ph/vrtours/wika1/swfvr",
+    },
+    {
+        name: "IOP 3D Website",
+        description: "This website will display the site's contents but within a three dimensional space. You are currently here.\n\nTechnologies used include A-Frame, Blender, and Asset Forge.",
+        developers: "Elijah Gabriel Malazarte & Joseph Gabriel Sta. Rita, UPLB BS Computer Science Interns for Midyear 2023",
+        imageid: "#3dsite",
+        link: ""
     }
 ]
 
