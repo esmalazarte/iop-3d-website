@@ -50,6 +50,7 @@ AFRAME.registerComponent('project', {
         let button = document.createElement("a-plane");
         let infoBg = document.createElement("a-plane");
         let devsBg = document.createElement("a-plane");
+        let buttonTxtBg = document.createElement("a-plane");
 
         info.setAttribute("value", proj.name+"\n\n"+proj.description);
         info.setAttribute("font", "kelsonsans");
@@ -84,15 +85,20 @@ AFRAME.registerComponent('project', {
         button.setAttribute("height", "0.5");
         button.setAttribute("url-on-click", "url: "+proj.link);
 
-        infoBg.setAttribute("material", "color: #a38d59");
+        infoBg.setAttribute("material", "color: #282c38");
         infoBg.setAttribute("width", "1.8");
         infoBg.setAttribute("height", "2");
         infoBg.setAttribute("position", "-1 0.3 0");
 
-        devsBg.setAttribute("material", "color: #a38d59");
+        devsBg.setAttribute("material", "color: #282c38");
         devsBg.setAttribute("width", "1.8");
         devsBg.setAttribute("height", "0.8");
         devsBg.setAttribute("position", "-1 -1.35 0");
+
+        buttonTxtBg.setAttribute("material", "color: #282c38");
+        buttonTxtBg.setAttribute("width", "1");
+        buttonTxtBg.setAttribute("height", "0.6");
+        buttonTxtBg.setAttribute("position", "0.75 -1.35 0");
 
         this.el.appendChild(info);
         this.el.appendChild(devs);
@@ -101,5 +107,6 @@ AFRAME.registerComponent('project', {
         this.el.appendChild(button);
         this.el.appendChild(infoBg);
         this.el.appendChild(devsBg);
+        this.el.appendChild(buttonTxtBg);
     },
 });
