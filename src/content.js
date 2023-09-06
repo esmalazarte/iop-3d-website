@@ -83,7 +83,8 @@ AFRAME.registerComponent('scrollcontrols', {
     schema: {
         targetID: {type: 'string'},
         bgColor: {default: "#a8adbb"},
-        textColor: {default: "#979797"},
+        hoverColor: {default: '#777a82'},
+        textColor: {default: "#282c38"},
         scrollDistance: {type: 'float', default: 1}
     },
 
@@ -152,38 +153,38 @@ AFRAME.registerComponent('scrollcontrols', {
         // Change button color on hover
         scrollUp.addEventListener('mouseenter', function() {
             scrollUp.setAttribute('material', {
-                color: data.textColor
+                color: data.hoverColor
             });
-            scrollUpArrow.setAttribute('text', {
-                color: data.bgColor
-            });
+            // scrollUpArrow.setAttribute('text', {
+            //     color: data.bgColor
+            // });
         });
 
         scrollDown.addEventListener('mouseenter', function() {
             scrollDown.setAttribute('material', {
-                color: data.textColor
+                color: data.hoverColor
             });
-            scrollDownArrow.setAttribute('text', {
-                color: data.bgColor
-            });
+            // scrollDownArrow.setAttribute('text', {
+            //     color: data.bgColor
+            // });
         });
 
         scrollUp.addEventListener('mouseleave', function() {
             scrollUp.setAttribute('material', {
                 color: data.bgColor
             });
-            scrollUpArrow.setAttribute('text', {
-                color: data.textColor
-            });
+            // scrollUpArrow.setAttribute('text', {
+            //     color: data.textColor
+            // });
         });
 
         scrollDown.addEventListener('mouseleave', function() {
             scrollDown.setAttribute('material', {
                 color: data.bgColor
             });
-            scrollDownArrow.setAttribute('text', {
-                color: data.textColor
-            });
+            // scrollDownArrow.setAttribute('text', {
+            //     color: data.textColor
+            // });
         });
 
         // Add to scene

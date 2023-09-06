@@ -223,7 +223,7 @@ AFRAME.registerComponent('diorama', {
         lobbyBtn.setAttribute("color", "red");
         lobbyBtn.setAttribute("event-set__enter", "_event: mouseenter; color: green");
         lobbyBtn.setAttribute("event-set__leave" , "_event: mouseleave; color: red");
-        lobbyBtn.setAttribute("scale", "0.04 0.05 0.04");
+        lobbyBtn.setAttribute("scale", "0.07 0.2 0.07");
         lobbyBtn.setAttribute("position", "0.07 0.01 -0.055");
         lobbyBtn.setAttribute("teleport", "pos: 2.75 0 -2.8");
 
@@ -231,7 +231,7 @@ AFRAME.registerComponent('diorama', {
         pubsBtn.setAttribute("color", "red");
         pubsBtn.setAttribute("event-set__enter", "_event: mouseenter; color: green");
         pubsBtn.setAttribute("event-set__leave" , "_event: mouseleave; color: red");
-        pubsBtn.setAttribute("scale", "0.04 0.05 0.04");
+        pubsBtn.setAttribute("scale", "0.07 0.2 0.07");
         pubsBtn.setAttribute("position", "-0.3 0.01 -0.075");
         pubsBtn.setAttribute("teleport", "pos: -15.3 0 -2.75");
 
@@ -239,15 +239,15 @@ AFRAME.registerComponent('diorama', {
         iscoBtn.setAttribute("color", "red");
         iscoBtn.setAttribute("event-set__enter", "_event: mouseenter; color: green");
         iscoBtn.setAttribute("event-set__leave" , "_event: mouseleave; color: red");
-        iscoBtn.setAttribute("scale", "0.04 0.05 0.04");
-        iscoBtn.setAttribute("position", "-0.23 0.01 0.215");
+        iscoBtn.setAttribute("scale", "0.07 0.2 0.07");
+        iscoBtn.setAttribute("position", "-0.25 0.01 0.235");
         iscoBtn.setAttribute("teleport", "pos: -12.4 0 10.5");
 
         projsBtn.setAttribute("class", "clickable");
         projsBtn.setAttribute("color", "red");
         projsBtn.setAttribute("event-set__enter", "_event: mouseenter; color: green");
         projsBtn.setAttribute("event-set__leave" , "_event: mouseleave; color: red");
-        projsBtn.setAttribute("scale", "0.04 0.05 0.04");
+        projsBtn.setAttribute("scale", "0.07 0.2 0.07");
         projsBtn.setAttribute("position", "-0.0001 0.01 0.285");
         projsBtn.setAttribute("teleport", "pos: 0.2 0 13");
 
@@ -255,8 +255,8 @@ AFRAME.registerComponent('diorama', {
         aboutBtn.setAttribute("color", "red");
         aboutBtn.setAttribute("event-set__enter", "_event: mouseenter; color: green");
         aboutBtn.setAttribute("event-set__leave" , "_event: mouseleave; color: red");
-        aboutBtn.setAttribute("scale", "0.04 0.05 0.04");
-        aboutBtn.setAttribute("position", "0.29 0.01 0.07");
+        aboutBtn.setAttribute("scale", "0.07 0.2 0.07");
+        aboutBtn.setAttribute("position", "0.32 0.01 0.07");
         aboutBtn.setAttribute("teleport", "pos: 15.5 0 3.5");
 
         this.el.appendChild(dioramamodel);

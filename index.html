@@ -30,6 +30,9 @@
 			<a-asset-item id="navmesh" src="./models/Nav.glb"></a-asset-item>
 
 			<img id="header" src="assets/UPOU Website Header.png"></img>
+			<img id="iopvr" src="assets/iopvr.png"></img>
+			<img id="2dicon" src="assets/2dicon.png"></img>
+			<img id="3dicon" src="assets/3dicon.png"></img>
 			<img id="petras" src="assets/people/petras.jpeg"></img>
 			<img id="deterala" src="assets/people/deterala.jpeg"></img>
 			<img id="arada" src="assets/people/arada.jpeg"></img>
@@ -185,12 +188,6 @@
 		sound="src: #buttonPress"
 		button-press
 		url-on-click="url: https://google.com"></a-box> -->
-		
-		<!-- Header -->
-		<a-entity position="0.5 2.1 7.4" rotation="0 180 0">
-			<a-image src="#header" height="2.51" width="9.6" position="0 0.1 0" scale="0.3 0.3 0.3"></a-image>
-			<a-text value="Immersive Open Pedagogies" font="exo2semibold" position="0.33 -0.2 0" align="center" width="3.2"></a-text>
-		</a-entity>
 
 		<!-- Map -->
 		<a-entity gltf-model="#map" position="0 0 0"></a-entity>
@@ -239,6 +236,54 @@
 		<!-- 
 			CONTENT INTEGRATION
 		-->
+
+		<!-- Header -->
+		<a-entity position="0.5 2.1 7.4" rotation="0 180 0">
+			<a-plane color="#282c38" width="2.85" height="1.7" position="0.025 0 -0.001"></a-plane>
+			<a-image src="#header" height="2.51" width="9.6" position="0 0.1 0" scale="0.3 0.3 0.3"></a-image>
+			<a-text value="Immersive Open Pedagogies" font="aileronsemibold" position="0.35 -0.18 0" align="center" width="3.2"></a-text>
+		</a-entity>
+
+		<!-- 2D/3D Switcher -->
+		<a-entity position="3.5 2.1 7.4" rotation="0 180 0">
+			<a-plane color="#282c38" width="2.85" height="1.7" position="0.025 0 -0.001"></a-plane>
+			<a-image src="#2dicon" height="0.5" width="0.5" position="-0.6 0.2 0"></a-image>
+			<a-image src="#3dicon" height="0.5" width="0.5" position="0.6 0.2 0"></a-image>
+			<a-box width="0.6" height="0.25" depth="0.1" position="-0.6 -0.35 0" color="#a7acba"
+				event-set__enter="_event: mouseenter; color: #777a82"
+				event-set__leave="_event: mouseleave; color: #a7acba"
+				url-on-click="url: https://iop.upou.edu.ph/">
+				<a-text value="Switch to 2D" font="kelsonsans" color="white" position="0 0 0.051" width="1.5" align="center"></a-text>
+			</a-box>
+			<a-box width="0.6" height="0.25" depth="0.05" position="0.6 -0.35 0" color="#444855">
+				<a-text value="Currently in 3D" font="kelsonsans" color="white" position="0 0 0.0251" width="1.5" align="center"></a-text>
+			</a-box>
+		</a-entity>
+
+		<!-- Directions -->
+		<a-entity position="-3.25 2.1 7.4" rotation="0 180 0">
+			<a-text value="ISCOLab" font="dejavu" align="center" position="0 -0.375 0"></a-text>
+			<a-text value="Publications" font="dejavu" align="center" position="0 -0.725 0"></a-text>
+			<a-text value="About" font="dejavu" align="center" position="0 -1.075 0"></a-text>
+			<a-text value="Projects" font="dejavu" align="center" position="0 -1.425 0"></a-text>
+		</a-entity>
+
+		<!-- Diorama Instructions -->
+		<a-plane color="#282c38" position="4.425 2 -2.9" width="2.85" height="1.7" rotation="0 270 0"></a-plane>
+		<a-text
+			value="Navigation Instructions:\n
+			You can use the WASD keys to move around the 3D site and the mouse to look around.\n
+			Following the colored lines will lead you to the respective rooms indicated by the label.\n
+			Alternatively, you can instantly teleport to another section by clicking one of the red buttons in the diorama below."
+			font="kelsonsans"
+			position="4.425 2.7 -4.25"
+			rotation="0 270 0"
+			baseline="top"
+			align="left"
+			width="2.7"
+			wrap-count="50"
+		>
+		</a-text>
 
 		<!-- NEWS -->
 		<a-entity position="-4.55 2.1 -3.55" news></a-entity>
