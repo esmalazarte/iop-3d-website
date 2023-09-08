@@ -1,0 +1,16 @@
+# Made using Asset Forge (2.3.0)
+
+:materials
+
+[name:metal;color:RGBA(0.580, 0.569, 0.769, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0.25;]
+[name:glass;color:RGBA(1.000, 1.000, 1.000, 1.000);scale:(1.0, 1.0);shader:Unlit;]
+[name:_defaultMat;color:RGBA(0.939, 0.953, 1.000, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0.25;]
+[name:stoneLight;color:RGBA(0.710, 0.701, 0.840, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:stone;color:RGBA(0.571, 0.559, 0.736, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:metalDark;color:RGBA(0.400, 0.388, 0.647, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0.5;]
+[name:dark;color:RGBA(0.224, 0.235, 0.275, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0;]
+
+:models
+
+[name:;collection:Primitives;type:block_bevel;position:(-0.3000, 0.0000, -0.2500);rotation:(0.0000, 270.0000, 0.0000);scale:(0.5000, 1.0000, 1.6000);group:;locked:False;hidden:False;materials:_defaultMat;]
+[name:;collection:Greebles;type:detail_ventSquare;position:(-0.0875, 0.5375, 0.0000);rotation:(0.0000, 270.0000, 270.0000);scale:(4.8000, 1.0000, 6.0000);group:;locked:False;hidden:False;materials:dark+_defaultMat;]

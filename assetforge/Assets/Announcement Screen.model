@@ -1,0 +1,41 @@
+# Made using Asset Forge (2.3.0)
+
+:materials
+
+[name:_defaultMat;color:RGBA(0.939, 0.953, 1.000, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0.25;]
+[name:custom1;color:RGBA(0.000, 0.000, 0.000, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0.15;]
+[name:custom2;color:RGBA(1.000, 0.722, 0.110, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0.15;]
+[name:custom3;color:RGBA(0.518, 0.094, 0.235, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0.15;]
+[name:custom4;color:RGBA(0.000, 0.341, 0.247, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0.15;]
+[name:plastic;color:RGBA(0.376, 0.376, 0.376, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:carTire;color:RGBA(0.239, 0.239, 0.239, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:paintGreen;color:RGBA(0.247, 0.887, 0.528, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:window;color:RGBA(0.937, 0.937, 0.937, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:lightBack;color:RGBA(1.000, 0.349, 0.227, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:lightFront;color:RGBA(0.961, 0.725, 0.259, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:wheelInside;color:RGBA(0.796, 0.805, 0.840, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+
+:models
+
+[name:;collection:Primitives;type:block;position:(2.6000, 1.9000, 0.1300);rotation:(0.0000, 0.0000, 0.0000);scale:(0.6000, 0.1000, 0.0600);group:;locked:False;hidden:False;materials:custom4;]
+[name:;collection:Primitives;type:block;position:(2.2500, 0.6000, 0.1300);rotation:(0.0000, 270.0000, 0.0000);scale:(0.0600, 1.4000, 0.1000);group:;locked:False;hidden:False;materials:custom4;]
+[name:;collection:Primitives;type:block;position:(2.6000, 0.6000, 0.0500);rotation:(0.0000, 270.0000, 0.0000);scale:(0.1000, 1.4000, 0.8000);group:;locked:False;hidden:False;materials:custom1;]
+[name:;collection:Primitives;type:block;position:(2.6000, 0.6000, 0.1300);rotation:(0.0000, 0.0000, 0.0000);scale:(0.6000, 0.1000, 0.0600);group:;locked:False;hidden:False;materials:custom4;]
+[name:;collection:Primitives;type:block;position:(2.9500, 0.6000, 0.1300);rotation:(0.0000, 270.0000, 0.0000);scale:(0.0600, 1.4000, 0.1000);group:;locked:False;hidden:False;materials:custom4;]
+[name:;collection:Primitives;type:block;position:(1.1000, 0.8668, 0.4749);rotation:(285.0000, 0.0000, 0.0000);scale:(1.0000, 0.4200, 0.0750);group:;locked:False;hidden:False;materials:custom2;]
+[name:;collection:Primitives;type:block;position:(2.6000, 0.4804, 0.3714);rotation:(285.0000, 0.0000, 0.0000);scale:(0.8000, 0.4200, 0.0750);group:;locked:False;hidden:False;materials:custom2;]
+[name:;collection:Primitives;type:block;position:(1.5000, 1.0000, 0.1300);rotation:(0.0000, 270.0000, 0.0000);scale:(0.0600, 0.1000, 1.0001);group:Group_59;locked:False;hidden:False;materials:custom4;]
+[name:;collection:Primitives;type:block;position:(0.6000, 1.0000, 0.0500);rotation:(0.0000, 270.0000, 0.0000);scale:(0.1000, 1.0000, 1.0002);group:Group_59;locked:False;hidden:False;materials:custom1;]
+[name:;collection:Primitives;type:block;position:(2.0500, 1.0000, 0.1300);rotation:(0.0000, 270.0000, 0.0000);scale:(0.0600, 1.0000, 0.1000);group:Group_59;locked:False;hidden:False;materials:custom4;]
+[name:;collection:Primitives;type:block;position:(0.1500, 1.0000, 0.1300);rotation:(0.0000, 270.0000, 0.0000);scale:(0.0600, 1.0000, 0.1000);group:Group_59;locked:False;hidden:False;materials:custom4;]
+[name:;collection:Primitives;type:block;position:(0.6000, 1.0000, 0.1300);rotation:(0.0000, 270.0000, 0.0000);scale:(0.0600, 0.1000, 0.8001);group:Group_59;locked:False;hidden:False;materials:custom4;]
+[name:;collection:Primitives;type:block;position:(0.6000, 1.9000, 0.1300);rotation:(0.0000, 270.0000, 0.0000);scale:(0.0600, 0.1000, 0.8001);group:Group_59;locked:False;hidden:False;materials:custom4;]
+[name:;collection:Primitives;type:block;position:(1.5000, 1.9000, 0.1300);rotation:(0.0000, 270.0000, 0.0000);scale:(0.0600, 0.1000, 1.0001);group:Group_59;locked:False;hidden:False;materials:custom4;]
+[name:;collection:Primitives;type:block;position:(1.6000, 1.0000, 0.0500);rotation:(0.0000, 270.0000, 0.0000);scale:(0.1000, 1.0000, 1.0001);group:Group_59;locked:False;hidden:False;materials:custom1;]
+[name:;collection:Primitives;type:block;position:(1.5500, 2.0000, 0.0800);rotation:(0.0000, 0.0000, 0.0000);scale:(3.1000, 0.0500, 0.1600);group:;locked:False;hidden:False;materials:custom3;]
+[name:;collection:Primitives;type:block;position:(3.0250, 0.0000, 0.0800);rotation:(0.0000, 0.0000, 0.0000);scale:(0.0500, 2.0000, 0.1600);group:;locked:False;hidden:False;materials:custom3;]
+[name:;collection:Primitives;type:block;position:(2.1500, 0.0000, 0.0800);rotation:(0.0000, 0.0000, 0.0000);scale:(0.1000, 2.0000, 0.1600);group:;locked:False;hidden:False;materials:custom3;]
+[name:;collection:Primitives;type:block;position:(0.0750, 0.0000, 0.0800);rotation:(0.0000, 0.0000, 0.0000);scale:(0.0500, 2.0000, 0.1600);group:;locked:False;hidden:False;materials:custom3;]
+[name:;collection:Primitives;type:block;position:(1.5501, 0.0000, -0.1000);rotation:(0.0000, 270.0000, 0.0000);scale:(0.2000, 2.0500, 3.0004);group:;locked:False;hidden:False;materials:custom3;]
+[name:;collection:Primitives;type:block;position:(1.5501, 0.0000, 0.0600);rotation:(0.0000, 270.0000, 0.0000);scale:(0.2000, 0.6027, 3.0004);group:;locked:False;hidden:False;materials:custom3;]
+[name:;collection:Primitives;type:block;position:(1.0892, 0.0000, 0.0600);rotation:(0.0000, 270.0000, 0.0000);scale:(0.2000, 0.9999, 2.0385);group:;locked:False;hidden:False;materials:custom3;]

@@ -1,0 +1,9 @@
+custom1 = announcement screens
+custom9 = lobby stand
+custom15 = flooring
+custom21 = walls
+
+ABOUT
+16 wide
+PROJECTS
+20 long

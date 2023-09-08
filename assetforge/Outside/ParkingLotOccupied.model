@@ -1,0 +1,30 @@
+# Made using Asset Forge (2.3.0)
+
+:materials
+
+[name:pavement(Clone);color:RGBA(0.757, 0.757, 0.800, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:asphaltEdge(Clone);color:RGBA(0.322, 0.337, 0.396, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:asphalt(Clone);color:RGBA(0.431, 0.455, 0.529, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:line(Clone);color:RGBA(0.549, 0.576, 0.678, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:custom14(Clone);color:RGBA(0.883, 0.800, 0.249, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:plastic;color:RGBA(0.376, 0.376, 0.376, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:carTire;color:RGBA(0.239, 0.239, 0.239, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:paintRed;color:RGBA(1.000, 0.227, 0.360, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:_defaultMat;color:RGBA(1.000, 1.000, 1.000, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:window;color:RGBA(0.937, 0.937, 0.937, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:lightBack;color:RGBA(1.000, 0.349, 0.227, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:lightFront;color:RGBA(0.961, 0.725, 0.259, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:wheelInside;color:RGBA(0.796, 0.805, 0.840, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:paintYellow;color:RGBA(1.000, 0.740, 0.259, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:paintGreen;color:RGBA(0.247, 0.887, 0.528, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+[name:paintBlue;color:RGBA(0.412, 0.478, 0.847, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0;]
+
+:models
+
+[name:;collection:Car;type:van;position:(-18.0000, 0.0250, 0.4000);rotation:(0.0000, 0.0000, 0.0000);scale:(1.5000, 1.5000, 1.5000);group:;locked:False;hidden:False;materials:plastic+carTire+lightFront+paintBlue+_defaultMat+lightBack+window+wheelInside;]
+[name:;collection:Car;type:truck;position:(-2.0000, 0.0250, -13.7000);rotation:(0.0000, 180.0000, 0.0000);scale:(1.5000, 1.5000, 1.5000);group:;locked:False;hidden:False;materials:plastic+carTire+paintGreen+lightFront+_defaultMat+lightBack+window+wheelInside;]
+[name:;collection:Car;type:hatchbackSports;position:(-6.0000, 0.0250, 9.0000);rotation:(0.0000, 180.0000, 0.0000);scale:(1.5000, 1.5000, 1.5000);group:;locked:False;hidden:False;materials:plastic+carTire+paintGreen+lightFront+_defaultMat+window+lightBack+wheelInside;]
+[name:;collection:Assets;type:ParkingLot;position:(-2.0000, -0.0750, -2.0000);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:pavement(Clone)+asphaltEdge(Clone)+asphalt(Clone)+line(Clone)+custom14(Clone);]
+[name:;collection:Car;type:suvLuxury;position:(-2.0000, 0.0250, 8.9000);rotation:(0.0000, 0.0000, 0.0000);scale:(1.5000, 1.5000, 1.5000);group:;locked:False;hidden:False;materials:plastic+carTire+_defaultMat+paintYellow+lightBack+lightFront+window+wheelInside;]
+[name:;collection:Car;type:sedanSports;position:(10.0000, 0.0250, 8.9000);rotation:(0.0000, 180.0000, 0.0000);scale:(1.5000, 1.5000, 1.5000);group:;locked:False;hidden:False;materials:plastic+carTire+paintRed+_defaultMat+window+lightBack+lightFront+wheelInside;]
+[name:;collection:Car;type:sedan;position:(10.0000, 0.0250, 0.0000);rotation:(0.0000, 0.0000, 0.0000);scale:(1.5000, 1.5000, 1.5000);group:;locked:False;hidden:False;materials:plastic+carTire+paintRed+lightFront+_defaultMat+window+lightBack+wheelInside;]
