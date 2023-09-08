@@ -1,3 +1,6 @@
+// This file contains dynamic content located in the About Us room.
+
+// List of each person and their details. Append to list to add more people.
 const people = [
     {
         name: "Roberto Figueroa Jr. PhD.",
@@ -64,6 +67,8 @@ const people = [
     },
 ]
 
+// Displays the image, description, name, and title of the person indicated by the index
+// Usage: Attach to an a-entity and manually position and indicate person's index e.g. <a-entity position="0 0 0" profile="index: 0"> 
 AFRAME.registerComponent('profile', {
     schema: {
         index: {type: 'int'}
@@ -118,6 +123,8 @@ AFRAME.registerComponent('profile', {
 
 });
 
+// Rotate the element when clicked
+// Used to switch between photo view and description view
 AFRAME.registerComponent('rotateonclick', {
     init: function () {
         let el = this.el;

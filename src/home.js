@@ -1,3 +1,5 @@
+// This places the news viewer in the Home room
+// Usage: Attach to an a-entity and manually position e.g. <a-entity position="0 0 0" news>
 AFRAME.registerComponent('news', {
     init: function () {
         let transparent1 = document.createElement("a-plane");

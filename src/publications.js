@@ -1,3 +1,6 @@
+// This file contains code to dynamically generate books in the Publications room to display published research.
+
+// List of publications and details. Append to add more publications. 
 const publications = [
     {
         title: "Virtual Reality Photo-based Tours for Teaching Filipino Vocabulary in an Online Class in Japan: Transitioning into the New Normal",
@@ -22,6 +25,8 @@ const publications = [
     },
 ]
 
+// Display the index publication's details, and clickable link to view the publication.
+// Usage: Attach to an a-entity and manually position and indicate person's index e.g. <a-entity position="0 0 0" publication="index: 0">
 AFRAME.registerComponent('publication', {
     schema: {
         index: {type: 'int'},

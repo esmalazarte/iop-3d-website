@@ -1,3 +1,6 @@
+// This file contains dynamic code to generate the projects view in the Projects room
+
+// List of projects and their details. Append to add more projects
 const projects = [
     {
         name: "UPOU Tour (A-Frame)",
@@ -71,6 +74,8 @@ const projects = [
     }
 ]
 
+// Display the index project's name, details, preview image, and clickable link to visit the project.
+// Usage: Attach to an a-entity and manually position and indicate person's index e.g. <a-entity position="0 0 0" project="index: 0">
 AFRAME.registerComponent('project', {
     schema: {
         index: {type: 'int'}

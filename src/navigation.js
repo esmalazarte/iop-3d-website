@@ -207,6 +207,8 @@ AFRAME.registerComponent('model-opacity', {
   }
 });
 
+// Place diorama that can teleport the user when a red button is pressed.
+// Usage: Attach to a-entity and manually position e.g. // Usage: Attach to an a-entity and manually position e.g. <a-entity position="0 0 0" diorama>
 AFRAME.registerComponent('diorama', {
     init: function () {
         let dioramamodel = document.createElement("a-entity");
