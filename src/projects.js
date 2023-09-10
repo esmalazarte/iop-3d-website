@@ -67,7 +67,7 @@ const projects = [
     },
     {
         name: "IOP 3D Website",
-        description: "This website will display the site's contents but within a three dimensional space. You are currently here.\n\nTechnologies used include A-Frame, Blender, and Asset Forge.",
+        description: "The 3D website attempts to reinvent how websites are viewed. Traditional websites are two-dimensional in nature wherein you can view the content in a 2D page. The IOP 3D website is a prototype on how the content on this site can be placed inside a three-dimensional space. You are currently viewing this project.\n\nTechnologies used include A-Frame, Blender, and Asset Forge.",
         developers: "Elijah Gabriel Malazarte & Joseph Gabriel Sta. Rita, UPLB BS Computer Science Interns for Midyear 2023",
         imageid: "#3dsite",
         link: ""
