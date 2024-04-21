@@ -103,6 +103,15 @@
 
 			<!-- Camera -->
 			<a-entity id="head" camera position="0 2 0" look-controls="pointerLockEnabled: true; magicWindowTrackingEnabled: false; touchEnabled: false">
+				<!-- Black Image -->
+				<a-image
+				id="blink"
+				src="#black"
+				width="10"
+				height="10"
+				position="0 0 -0.1"
+				opacity="0"
+				material="alphaTest: 0.5"></a-image>
 				<!-- Camera Cursor -->
 				<a-entity id="cursor"
 				cursor="rayOrigin: entity"
