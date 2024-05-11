@@ -14,6 +14,7 @@ AFRAME.registerComponent('archive', {
       // Do something when component first attached.
       let listareanew = document.createElement("a-plane");
       let listnew = document.createElement("a-entity");
+      let listnewscroll = document.createElement("a-entity");
 
       listareanew.setAttribute("color", "#282c38");
       listareanew.setAttribute("rotation", "0 180 0");
@@ -26,9 +27,15 @@ AFRAME.registerComponent('archive', {
       listnew.setAttribute("position", "0 -0.269 0.005");
       listnew.setAttribute("hyperlinklist", "cardHeight: 0.4; cardWidth: 5.9; bgColor: #282c38; wrapCount: 50");
 
+      listnewscroll.setAttribute("scrollcontrols", "targetID: #listnew; scrollDistance: 0.4");
+      listnewscroll.setAttribute("position", "0 -1.575 -0.2");
+      listnewscroll.setAttribute("rotation", "240 0 0");
+      listnewscroll.setAttribute("scale", "0.8 0.8 0.8");
+
       this.el.appendChild(listareanew);
     //   listnew.appendChild(postTitle);
       listareanew.appendChild(listnew);
+      this.el.appendChild(listnewscroll);
 
     }
 });
