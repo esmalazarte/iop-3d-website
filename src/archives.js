@@ -18,13 +18,13 @@ AFRAME.registerComponent('archive', {
       listareanew.setAttribute("color", "#282c38");
       listareanew.setAttribute("rotation", "0 180 0");
     //   listareanew.setAttribute("position", "-18.275 0.65 12.9");
-      listareanew.setAttribute("height", "1.75");
-      listareanew.setAttribute("width", "0.8");
+      listareanew.setAttribute("height", "3");
+      listareanew.setAttribute("width", "6");
       listareanew.setAttribute("id", "listareanew"); //DEBUG
 
       listnew.setAttribute("id", "listnew"); //DEBUG
-      listnew.setAttribute("position", "0 0 0.005");
-      listnew.setAttribute("hyperlinklist", "cardHeight: 0.4; cardWidth: 0.75; bgColor: #282c38");
+      listnew.setAttribute("position", "0 -0.269 0.005");
+      listnew.setAttribute("hyperlinklist", "cardHeight: 0.4; cardWidth: 5.9; bgColor: #282c38; wrapCount: 50");
 
       this.el.appendChild(listareanew);
     //   listnew.appendChild(postTitle);
