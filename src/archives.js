@@ -1,22 +1,20 @@
+// List of publications to be added to the archive and its link. Append to add more.
 const oldpublications = [
     {
-        title: "VERRRRRRRY LONG TITLE",
-        link: "link"
-    },
-    {
-        title: "new title",
-        link: "link2"
+        title: "Virtualizing a University Campus Tour: A Pilot Study on its Usability and User Experience, and Perception",
+        link: "https://ijitgeb.org/ijitgeb/article/view/60"
     }
 ]
 
+// List of projects to be added to the archive and its link. Append to add more.
 const oldprojects = [
     {
-        title: "VERRRRRRRY LONG TITLE",
-        link: "link"
+        title: "Perma GARDEN VR Tour",
+        link: "https://iop.upou.edu.ph/vrtours/permagarden"
     },
     {
-        title: "new title",
-        link: "link2"
+        title: "PH Tour",
+        link: "https://iop.upou.edu.ph/vrtours/ph"
     }
 ]
 
@@ -96,7 +94,6 @@ AFRAME.registerComponent('pub_hyperlinklist', {
 
     init: function () {
         let container = this.el.parentElement;
-        console.log(container); //DEBUG
         let yPos = container.getAttribute('geometry').height / 2.5;
         let postTitle;
         let titleText;
@@ -104,7 +101,6 @@ AFRAME.registerComponent('pub_hyperlinklist', {
 
         // Create element for each post in category
         for (let i=0; i<oldpublications.length; i++){
-            console.log(oldpublications[i]); //DEBUG
             postTitle = document.createElement('a-entity');
 
             // Trim title if too long
@@ -136,17 +132,11 @@ AFRAME.registerComponent('pub_hyperlinklist', {
                 zOffset: 0.005,
             })
 
+            postTitle.setAttribute('url-on-click', "url: "+oldpublications[i].link);
+
             // Position title cards downwards
             postTitle.object3D.position.y = yPos;
             yPos -= (this.data.cardHeight + 0.05);
-
-            // // Change post content when clicked on title card
-            // postTitle.addEventListener('click', function() {
-            //     postView.setAttribute('text', {
-            //         value: filterText(posts[i].title.rendered) + '\n' + filterText(posts[i].content.rendered)
-            //     })
-            //     postView.object3D.position.y = postView.parentElement.getAttribute('geometry').height / 2.25
-            // })
 
             // Change colors on hover
             postTitle.addEventListener('mouseenter', function() {
@@ -187,7 +177,6 @@ AFRAME.registerComponent('pro_hyperlinklist', {
 
     init: function () {
         let container = this.el.parentElement;
-        console.log(container); //DEBUG
         let yPos = container.getAttribute('geometry').height / 2.5;
         let postTitle;
         let titleText;
@@ -195,7 +184,6 @@ AFRAME.registerComponent('pro_hyperlinklist', {
 
         // Create element for each post in category
         for (let i=0; i<oldprojects.length; i++){
-            console.log(oldprojects[i]); //DEBUG
             postTitle = document.createElement('a-entity');
 
             // Trim title if too long
@@ -227,17 +215,11 @@ AFRAME.registerComponent('pro_hyperlinklist', {
                 zOffset: 0.005,
             })
 
+            postTitle.setAttribute('url-on-click', "url: "+oldprojects[i].link);
+
             // Position title cards downwards
             postTitle.object3D.position.y = yPos;
             yPos -= (this.data.cardHeight + 0.05);
-
-            // // Change post content when clicked on title card
-            // postTitle.addEventListener('click', function() {
-            //     postView.setAttribute('text', {
-            //         value: filterText(posts[i].title.rendered) + '\n' + filterText(posts[i].content.rendered)
-            //     })
-            //     postView.object3D.position.y = postView.parentElement.getAttribute('geometry').height / 2.25
-            // })
 
             // Change colors on hover
             postTitle.addEventListener('mouseenter', function() {
