@@ -3,6 +3,14 @@ const oldpublications = [
     {
         title: "Virtualizing a University Campus Tour: A Pilot Study on its Usability and User Experience, and Perception",
         link: "https://ijitgeb.org/ijitgeb/article/view/60"
+    },
+    {
+        title: "Piloting Virtual Reality Photo-Based Tours among Students of a Filipino Language Class: A Case of Emergency Remote Teaching in Japan",
+        link: "https://doi.org/10.48550/arXiv.2301.01904"
+    },
+    {
+        title: "Virtualizing a University Campus Tour: A Pilot Study on its Usability and User Experience, and Perception",
+        link: "https://ijitgeb.org/ijitgeb/article/view/60"
     }
 ]
 
@@ -15,32 +23,57 @@ const oldprojects = [
     {
         title: "PH Tour",
         link: "https://iop.upou.edu.ph/vrtours/ph"
+    },
+    {
+        title: "Forestry Ecosystem Services",
+        link: "https://iop.upou.edu.ph/vrtours/forestry"
+    },
+    {
+        title: "NCODeL Virtual Exhibit",
+        link: "https://framevr.io/ncodel-old"
+    },
+    {
+        title: "Tri-Conference 2023 Virtual Exhibit",
+        link: "https://framevr.io/upou-exhibit"
+    },
+    {
+        title: "Tri-Conference 2023 Augmented Reality Tour",
+        link: "https://iop.upou.edu.ph/ar/exhibit"
+    },
+    {
+        title: "HANDI System",
+        link: "https://iop.upou.edu.ph/vr/handi"
+    },
+    {
+        title: "WIKA 1 Virtual Tour",
+        link: "https://iop.upou.edu.ph/vrtours/wika1/swfvr"
     }
 ]
 
 AFRAME.registerComponent('pub_archive', {
     init: function () {
       // Do something when component first attached.
-      let listareanew = document.createElement("a-plane");
-      let listnew = document.createElement("a-entity");
-      let listnewscroll = document.createElement("a-entity");
+      let pubarea = document.createElement("a-plane");
+      let publist = document.createElement("a-entity");
+      let pubscroll = document.createElement("a-entity");
 
-      listareanew.setAttribute("color", "#282c38");
-      listareanew.setAttribute("rotation", "0 180 0");
-      listareanew.setAttribute("height", "3");
-      listareanew.setAttribute("width", "6");
+      pubarea.setAttribute("color", "#282c38");
+      pubarea.setAttribute("rotation", "0 180 0");
+      pubarea.setAttribute("height", "3");
+      pubarea.setAttribute("width", "6");
 
-      listnew.setAttribute("position", "0 -0.269 0.005");
-      listnew.setAttribute("pub_hyperlinklist", "cardHeight: 0.4; cardWidth: 5.9; bgColor: #282c38; wrapCount: 80");
+      publist.setAttribute("id", "publication_list")
+      publist.setAttribute("position", "0 -0.269 0.005");
+      publist.setAttribute("pub_hyperlinklist", "cardHeight: 0.4; cardWidth: 5.9; bgColor: #282c38; wrapCount: 80");
 
-      listnewscroll.setAttribute("scrollcontrols", "targetID: #publication_list; scrollDistance: 0.4");
-      listnewscroll.setAttribute("position", "0 -1.575 -0.2");
-      listnewscroll.setAttribute("rotation", "240 0 0");
-      listnewscroll.setAttribute("scale", "0.8 0.8 0.8");
+      pubscroll.setAttribute("scrollcontrols", "targetID: #publication_list; scrollDistance: 0.4");
+      pubscroll.setAttribute("position", "0 -1.575 -0.2");
+      pubscroll.setAttribute("rotation", "240 0 0");
+      pubscroll.setAttribute("scale", "0.8 0.8 0.8");
 
-      this.el.appendChild(listareanew);
-      listareanew.appendChild(listnew);
-      this.el.appendChild(listnewscroll);
+      this.el.appendChild(pubarea);
+      pubarea.appendChild(publist);
+      this.el.appendChild(pubscroll);
 
     }
 });
@@ -49,26 +82,27 @@ AFRAME.registerComponent('pub_archive', {
 AFRAME.registerComponent('pro_archive', {
     init: function () {
       // Do something when component first attached.
-      let listareanew = document.createElement("a-plane");
-      let listnew = document.createElement("a-entity");
-      let listnewscroll = document.createElement("a-entity");
+      let projectarea = document.createElement("a-plane");
+      let project = document.createElement("a-entity");
+      let projectscroll = document.createElement("a-entity");
 
-      listareanew.setAttribute("color", "#282c38");
-      listareanew.setAttribute("rotation", "0 180 0");
-      listareanew.setAttribute("height", "3");
-      listareanew.setAttribute("width", "6");
+      projectarea.setAttribute("color", "#282c38");
+      projectarea.setAttribute("rotation", "0 180 0");
+      projectarea.setAttribute("height", "3");
+      projectarea.setAttribute("width", "6");
 
-      listnew.setAttribute("position", "0 -0.269 0.005");
-      listnew.setAttribute("pro_hyperlinklist", "cardHeight: 0.4; cardWidth: 5.9; bgColor: #282c38; wrapCount: 80");
+      project.setAttribute("id", "project_list")
+      project.setAttribute("position", "0 -0.269 0.005");
+      project.setAttribute("pro_hyperlinklist", "cardHeight: 0.4; cardWidth: 5.9; bgColor: #282c38; wrapCount: 80");
 
-      listnewscroll.setAttribute("scrollcontrols", "targetID: #project_list; scrollDistance: 0.4");
-      listnewscroll.setAttribute("position", "0 -1 -0.17");
-      listnewscroll.setAttribute("rotation", "240 0 0");
-      listnewscroll.setAttribute("scale", "0.8 0.8 0.8");
+      projectscroll.setAttribute("scrollcontrols", "targetID: #project_list; scrollDistance: 0.4");
+      projectscroll.setAttribute("position", "0 -1 -0.17");
+      projectscroll.setAttribute("rotation", "240 0 0");
+      projectscroll.setAttribute("scale", "0.8 0.8 0.8");
 
-      this.el.appendChild(listareanew);
-      listareanew.appendChild(listnew);
-      this.el.appendChild(listnewscroll);
+      this.el.appendChild(projectarea);
+      projectarea.appendChild(project);
+      this.el.appendChild(projectscroll);
 
     }
 });
