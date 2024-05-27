@@ -66,7 +66,7 @@ AFRAME.registerComponent('pub_archive', {
       publist.setAttribute("position", "0 -0.269 0.005");
       publist.setAttribute("pub_hyperlinklist", "cardHeight: 0.4; cardWidth: 5.9; bgColor: #282c38; wrapCount: 80");
 
-      pubscroll.setAttribute("scrollcontrols", "targetID: #publication_list; scrollDistance: 0.4");
+      pubscroll.setAttribute("scrollcontrols", "targetID: #publication_list; scrollDistance: -0.4");
       pubscroll.setAttribute("position", "0 -1.575 -0.2");
       pubscroll.setAttribute("rotation", "240 0 0");
       pubscroll.setAttribute("scale", "0.8 0.8 0.8");
@@ -95,7 +95,7 @@ AFRAME.registerComponent('pro_archive', {
       project.setAttribute("position", "0 -0.269 0.005");
       project.setAttribute("pro_hyperlinklist", "cardHeight: 0.4; cardWidth: 5.9; bgColor: #282c38; wrapCount: 80");
 
-      projectscroll.setAttribute("scrollcontrols", "targetID: #project_list; scrollDistance: 0.4");
+      projectscroll.setAttribute("scrollcontrols", "targetID: #project_list; scrollDistance: -0.4");
       projectscroll.setAttribute("position", "0 -1 -0.17");
       projectscroll.setAttribute("rotation", "240 0 0");
       projectscroll.setAttribute("scale", "0.8 0.8 0.8");
